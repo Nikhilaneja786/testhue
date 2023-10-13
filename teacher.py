@@ -110,7 +110,7 @@ class Addteacher:
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.addstaff)
         
         #3047ff
-        self.login.place(x=20, y=12)
+        self.login.place(x=18, y=8)
         
         
     def addstaff(self):

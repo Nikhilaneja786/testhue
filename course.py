@@ -47,11 +47,11 @@ class Addcourse:
         self.lgn_button_label = Label(self.frame2, image=photo, bg='#ffffff')
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=90, y=350)
-        self.login = Button(self.lgn_button_label, text='ADD', font=('monoco', 13, "bold"), width=25, bd=0,
+        self.login = Button(self.lgn_button_label, text='ADD', font=('monoco', 13, "bold"), width=24, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.Addcourse)
         
         #3047ff
-        self.login.place(x=20, y=12)
+        self.login.place(x=18, y=8)
         
     def Addcourse(self):
      

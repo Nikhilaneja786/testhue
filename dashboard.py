@@ -240,9 +240,10 @@ class main():
         
         # self.image = ImageTk.PhotoImage(file="images/nik.jpg")
         # self.dassimage = Label(self.frame2, image=self.image,height=750,width=700)
+        
         # self.dassimage.place(x=470, y=120)
         
-        dashboard.main(self.frame2)
+        dashboard.main(self)
         # my_object = main()
         # my_object.method("foo")
         
