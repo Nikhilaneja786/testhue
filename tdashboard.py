@@ -34,7 +34,7 @@ class main():
         
         
    
-        self.login = Button(self.frame1, text='HOME', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.frame1, text='Home', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
         self.login.place(x=80, y=110)
         
@@ -48,7 +48,7 @@ class main():
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=10, y=195)
  
-        self.login = Button(self.frame1, text='ATTENDENCE ', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.frame1, text='Attendence ', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
         self.login.place(x=80, y=200)
         
@@ -62,7 +62,7 @@ class main():
         self.lgn_button_label.place(x=10, y=285)
         
       
-        self.login = Button(self.frame1, text='ADD LEAVE', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.frame1, text='Addd Leave', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
         self.login.place(x=80, y=290)
         
@@ -74,7 +74,7 @@ class main():
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=10, y=375)
      
-        self.login = Button(self.frame1, text='VIEW DATA', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.frame1, text='View Data', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
         self.login.place(x=80, y=380)
         
