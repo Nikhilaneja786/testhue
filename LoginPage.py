@@ -26,10 +26,6 @@ class loginPage:
                              relief=FLAT)
         self.heading.place(x=1150, y=60, width=430, height=30)
         
-        # self.img = Image.open('images/recodir.png').resize((520, 200))
-        # self.imgTk = ImageTk.PhotoImage(self.img)
-        # self.imgLbl = Label(self.lgn_frame, image = self.imgTk,bg='#035995')
-        # self.imgLbl.place(x = 150, y = 160)
         
         #left side image
         # self.side_image = Image.open('images\\vector.png')
@@ -62,43 +58,61 @@ class loginPage:
                                     font=("yu gothic ui", 13, "bold"))
         self.username_label.place(x=1200, y=450)
 
+        # self.username_entry = Entry(self.window, highlightthickness=0, relief=FLAT, bg="white", fg="black",
+        #                             font=("yu gothic ui ", 12, "bold"), insertbackground = '#6b6a69')
+        # self.username_entry.place(x=1230, y=485, width=270)
+
+        # self.username_line = Canvas(self.window, width=300, height=2.0, bg="black", highlightthickness=0)
+        # self.username_line.place(x=1200, y=509)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        self.username_icon = Image.open('images\\outline.png')
+        photo = ImageTk.PhotoImage(self.username_icon)
+        self.username_icon_label = Label(self.window, image=photo, bg='white')
+        self.username_icon_label.image = photo
+        self.username_icon_label.place(x=1200, y=480) 
         self.username_entry = Entry(self.window, highlightthickness=0, relief=FLAT, bg="white", fg="black",
                                     font=("yu gothic ui ", 12, "bold"), insertbackground = '#6b6a69')
-        self.username_entry.place(x=1230, y=485, width=270)
-
-        self.username_line = Canvas(self.window, width=300, height=2.0, bg="black", highlightthickness=0)
-        self.username_line.place(x=1200, y=509)
+        self.username_entry.place(x=1240, y=492, width=260)
+        
+        
         #  Username icon 
         self.username_icon = Image.open('images\\username_icon.png')
         photo = ImageTk.PhotoImage(self.username_icon)
         self.username_icon_label = Label(self.window, image=photo, bg='white')
         self.username_icon_label.image = photo
-        self.username_icon_label.place(x=1200, y=482)
+        self.username_icon_label.place(x=1210, y=490)
 
         
-        # login button
-        
-        self.lgn_button = Image.open('images\\but.png')
-        photo = ImageTk.PhotoImage(self.lgn_button)
-        self.lgn_button_label = Label(self.window, image=photo, bg='white')
-        self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=1210, y=650)
-        self.login = Button(self.lgn_button_label, text='LOGIN', font=("yu gothic ui", 13, "bold"), width=25, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.login)
-        self.login.place(x=18, y=8)
         
         
         #password
-        
         self.password_label = Label(self.window, text="Password", bg="white", fg="black",
                                     font=("yu gothic ui", 13, "bold"))
-        self.password_label.place(x=1200, y=530)
+        self.password_label.place(x=1200, y=550)
 
-        self.password_entry = Entry(self.window, highlightthickness=0, relief=FLAT, bg="white", fg="black",
-                                    font=("yu gothic ui", 12, "bold"), show="*", insertbackground = '#6b6a69')
-        self.password_entry.place(x=1230, y=566, width=244)
-        self.password_line = Canvas(self.window, width=300, height=2.0, bg="black", highlightthickness=0)
-        self.password_line.place(x=1200, y=590)
+        # self.password_entry = Entry(self.window, highlightthickness=0, relief=FLAT, bg="white", fg="black",
+        #                             font=("yu gothic ui", 12, "bold"), show="*", insertbackground = '#6b6a69')
+        # self.password_entry.place(x=1230, y=566, width=244)
+        # self.password_line = Canvas(self.window, width=300, height=2.0, bg="black", highlightthickness=0)
+        # self.password_line.place(x=1200, y=590)
+        
+        self.password_entry = Image.open('images\\outline.png')
+        photo = ImageTk.PhotoImage(self.password_entry)
+        self.password_entry = Label(self.window, image=photo, bg='white')
+        self.password_entry.image = photo
+        self.password_entry.place(x=1200, y=580) 
+        self.password_entry= Entry(self.window, highlightthickness=0, relief=FLAT, bg="white", fg="black",
+                                    font=("yu gothic ui ", 12, "bold"), show='*',insertbackground = '#6b6a69')
+        self.password_entry.place(x=1240, y=592, width=260)
         
         
         
@@ -107,12 +121,22 @@ class loginPage:
         photo = ImageTk.PhotoImage(self.password_icon)
         self.password_icon_label = Label(self.window, image=photo, bg='white')
         self.password_icon_label.image = photo
-        self.password_icon_label.place(x=1200, y=564)
+        self.password_icon_label.place(x=1210, y=590)
+        
+        
+        # login button
+        self.lgn_button = Image.open('images\\but.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.window, image=photo, bg='white')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=1210, y=665)
+        self.login = Button(self.lgn_button_label, text='LOGIN', font=("yu gothic ui", 13, "bold"), width=25, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.login)
+        self.login.place(x=18, y=8)
+        
         
         #  show/hide password 
-        
-        
-        
+         
         self.show_image = ImageTk.PhotoImage \
             (file='images\\show.png')
 
@@ -122,7 +146,7 @@ class loginPage:
         self.show_button = Button(self.window, image=self.show_image, command=self.show, relief=FLAT,
                                   activebackground="white"
                                   , borderwidth=0, background="white", cursor="hand2")
-        self.show_button.place(x=1510, y=570)
+        self.show_button.place(x=1510, y=590)
 
     def show(self):
         self.hide_button = Button(self.window, image=self.hide_image, command=self.hide, relief=FLAT,
