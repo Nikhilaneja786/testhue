@@ -1,0 +1,14 @@
+from tkinter import *
+# from tkinter import messagebox
+from PIL import Image, ImageTk
+# import database
+
+class dataview:
+    def __init__(self,frame2) -> None:
+        # self.frame2 = frame2
+
+        self.frame2=Frame(width='1610',height='1050',bg='white')
+        self.frame2.place(x='300',y='0') 
+        
+if __name__=='__main__':
+    dataview() 
