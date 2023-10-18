@@ -15,26 +15,29 @@ class loginPage:
         self.window.title('Login Page')
 # white
      
-        #Login Frame
+        #side frame
         self.lgn_frame = Frame(self.window, bg='#035995', width=800, height=1050)
         self.lgn_frame.place(x=0, y=5)
 
-        self.txt = "WELCOME TO RECODIR"
-        self.heading = Label(self.window, text=self.txt, font=('times new roman', 25, "bold"), bg="white",
-                             fg='#035995',
+        self.side_image = Image.open('images\\footer.png')
+        photo = ImageTk.PhotoImage(self.side_image)
+        self.side_image_label = Label(self.lgn_frame, image=photo, bg='#035995')
+        self.side_image_label.image = photo
+        self.side_image_label.place(x=140, y=300)
+        
+        self.txt = "WELCOME"
+        self.heading = Label(self.lgn_frame, text=self.txt, font=('arial black', 32, "bold"), bg="#035995",
+                             fg='yellow',
                              bd=5,
                              relief=FLAT)
-        self.heading.place(x=1150, y=60, width=430, height=30)
+        self.heading.place(x=120, y=60)
         
-        
-        #left side image
-        # self.side_image = Image.open('images\\vector.png')
-        # photo = ImageTk.PhotoImage(self.side_image)
-        # self.side_image_label = Label(self.lgn_frame, image=photo, bg='#035995')
-        # self.side_image_label.image = photo
-        # self.side_image_label.place(x=255, y=250)
-  
- 
+        self.txt = "Login To Continue"
+        self.heading = Label(self.lgn_frame, text=self.txt, font=('cg times', 12, "bold"), bg="#035995",
+                             fg='yellow',
+                             bd=5,
+                             relief=FLAT)
+        self.heading.place(x=125, y=115)
         
         #  Sign In Image 
         

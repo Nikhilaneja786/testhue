@@ -11,7 +11,7 @@ import Addstudent
 
 # import database
 import dashboard
-# import tview
+import addholiday
 # import cview
 # import sview
 # import LoginPage
@@ -46,13 +46,7 @@ class main():
         self.lgn_button_label = Label(self.frame1, image=photo,width=25,height=20,bg='#035995')
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=30, y=120)
-        
-        
-        # self.lgn_button = Image.open('images\\btn5.jpg')
-        # photo = ImageTk.PhotoImage(self.lgn_button)
-        # self.lgn_button_label = Label(self.frame1, image=photo, bg='#035995',width=300,height=50)
-        # self.lgn_button_label.image = photo
-        # self.lgn_button_label.place(x=80, y=110)
+
         self.login = Button(self.frame1, text='Home', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.hom)
         self.login.place(x=80, y=110)
@@ -64,33 +58,25 @@ class main():
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=10, y=195)
-        
-        # self.lgn_button = Image.open('images\\btn5.jpg')
-        # photo = ImageTk.PhotoImage(self.lgn_button)
-        # self.lgn_button_label = Label(self.frame1, image=photo, bg='#035995',width=300,height=50)
-        # self.lgn_button_label.image = photo
-        # self.lgn_button_label.place(x=80, y=200)
+ 
         self.login = Button(self.frame1, text='Add Staff', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.tech)
         self.login.place(x=80, y=200)
         
         
-        #add COURSEself
         
+        #add COURSEself
         self.lgn_button = Image.open('images\\addcrs.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=10, y=285)
-        
-        # self.lgn_button = Image.open('images\\btn5.jpg')
-        # photo = ImageTk.PhotoImage(self.lgn_button)
-        # self.lgn_button_label = Label(self.frame1, image=photo, bg='#035995',width=300,height=50)
-        # self.lgn_button_label.image = photo
-        # self.lgn_button_label.place(x=80, y=290)
+   
         self.login = Button(self.frame1, text='Add Course', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.crs)
         self.login.place(x=80, y=290)
+        
+        
         
         
         #add student
@@ -99,49 +85,56 @@ class main():
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=10, y=375)
-        
-        # self.lgn_button = Image.open('images\\btn5.jpg')
-        # photo = ImageTk.PhotoImage(self.lgn_button)
-        # self.lgn_button_label = Label(self.frame1, image=photo, bg='#035995',width=300,height=50)
-        # self.lgn_button_label.image = photo
-        # self.lgn_button_label.place(x=80, y=380)
+
         self.login = Button(self.frame1, text='Add Student', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.sTudent)
         self.login.place(x=80, y=380)
         
-        #view attendence
         
-        self.lgn_button = Image.open('images\\checked.png')
+        
+        #view attendence
+        self.lgn_button = Image.open('images\\holiday.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=460)
-        
-        # self.lgn_button = Image.open('images\\btn5.jpg')
-        # photo = ImageTk.PhotoImage(self.lgn_button)
-        # self.lgn_button_label = Label(self.frame1, image=photo, bg='#035995',width=300,height=50)
-        # self.lgn_button_label.image = photo
-        # self.lgn_button_label.place(x=80, y=460)
-        self.login = Button(self.frame1, text='Attendence', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white')
+        self.lgn_button_label.place(x=10, y=455)
+
+        self.login = Button(self.frame1, text='Add Holiday', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white',command=self.holiday)
         self.login.place(x=80, y=460)
         
-        #add note
         
+        
+        #add note
         self.lgn_button = Image.open('images\\addnote.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=10, y=545)
         
-        # self.lgn_button = Image.open('images\\btn5.jpg')
-        # photo = ImageTk.PhotoImage(self.lgn_button)
-        # self.lgn_button_label = Label(self.frame1, image=photo, bg='#035995',width=300,height=50)
-        # self.lgn_button_label.image = photo
-        # self.lgn_button_label.place(x=80, y=550)
+  
         self.login = Button(self.frame1, text='Add Note', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white',command=self.note)
         self.login.place(x=80, y=550)
+        
+        
+        
+        #add event
+        self.lgn_button = Image.open('images\\event.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=10, y=640)
+       
+   
+        self.login = Button(self.frame1, text='Add Event', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white')
+        self.login.place(x=80, y=640)
+        
+        
+        
+        
+        
         
         # DATA 
         
@@ -149,7 +142,7 @@ class main():
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=640)
+        self.lgn_button_label.place(x=10, y=730)
         
         # self.lgn_button = Image.open('images\\btn5.jpg')
         # photo = ImageTk.PhotoImage(self.lgn_button)
@@ -158,7 +151,7 @@ class main():
         # self.lgn_button_label.place(x=80, y=640)
         self.login = Button(self.frame1, text='View Data', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white',command=self.dviw)
-        self.login.place(x=80, y=640)
+        self.login.place(x=80, y=730)
         
     
         
@@ -260,7 +253,8 @@ class main():
         addnote.noteadd(self.frame2)
 
     
-    
+    def holiday(self):
+        addholiday.holidayadd(self.frame2)
                 
     def dash():
         root=Tk
