@@ -152,14 +152,14 @@ class loginPage:
         self.hide_button = Button(self.window, image=self.hide_image, command=self.hide, relief=FLAT,
                                   activebackground="white"
                                   , borderwidth=0, background="white", cursor="hand2")
-        self.hide_button.place(x=1510, y=570)
+        self.hide_button.place(x=1510, y=590)
         self.password_entry.config(show='')
 
     def hide(self):
         self.show_button = Button(self.window, image=self.show_image, command=self.show, relief=FLAT,
                                   activebackground="white"
                                   , borderwidth=0, background="white", cursor="hand2")
-        self.show_button.place(x=1510, y=570)
+        self.show_button.place(x=1510, y=590)
         self.password_entry.config(show='*')
         
         
