@@ -36,7 +36,7 @@ class main():
         self.root.mainloop()
         
     def sun (self):
-        print('button is clicked')
+        # print('button is clicked')
         rs=1 
         if rs==1:
                 

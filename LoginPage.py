@@ -33,7 +33,7 @@ class loginPage:
         self.heading.place(x=120, y=60)
         
         self.txt = "Login To Continue"
-        self.heading = Label(self.lgn_frame, text=self.txt, font=('cg times', 12, "bold"), bg="#035995",
+        self.heading = Label(self.lgn_frame, text=self.txt, font=('libre baskerville', 12, "bold"), bg="#035995",
                              fg='yellow',
                              bd=5,
                              relief=FLAT)
@@ -68,15 +68,7 @@ class loginPage:
         # self.username_line = Canvas(self.window, width=300, height=2.0, bg="black", highlightthickness=0)
         # self.username_line.place(x=1200, y=509)
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+            
         self.username_icon = Image.open('images\\outline.png')
         photo = ImageTk.PhotoImage(self.username_icon)
         self.username_icon_label = Label(self.window, image=photo, bg='white')
@@ -87,6 +79,8 @@ class loginPage:
         self.username_entry.place(x=1240, y=492, width=260)
         
         
+        
+        
         #  Username icon 
         self.username_icon = Image.open('images\\username_icon.png')
         photo = ImageTk.PhotoImage(self.username_icon)
@@ -94,9 +88,7 @@ class loginPage:
         self.username_icon_label.image = photo
         self.username_icon_label.place(x=1210, y=490)
 
-        
-        
-        
+    
         #password
         self.password_label = Label(self.window, text="Password", bg="white", fg="black",
                                     font=("yu gothic ui", 13, "bold"))
@@ -115,7 +107,7 @@ class loginPage:
         self.password_entry.place(x=1200, y=580) 
         self.password_entry= Entry(self.window, highlightthickness=0, relief=FLAT, bg="white", fg="black",
                                     font=("yu gothic ui ", 12, "bold"), show='*',insertbackground = '#6b6a69')
-        self.password_entry.place(x=1240, y=592, width=260)
+        self.password_entry.place(x=1240, y=592, width=220)
         
         
         
@@ -149,20 +141,20 @@ class loginPage:
         self.show_button = Button(self.window, image=self.show_image, command=self.show, relief=FLAT,
                                   activebackground="white"
                                   , borderwidth=0, background="white", cursor="hand2")
-        self.show_button.place(x=1510, y=590)
+        self.show_button.place(x=1470, y=595)
 
     def show(self):
         self.hide_button = Button(self.window, image=self.hide_image, command=self.hide, relief=FLAT,
                                   activebackground="white"
                                   , borderwidth=0, background="white", cursor="hand2")
-        self.hide_button.place(x=1510, y=590)
+        self.hide_button.place(x=1470, y=595)
         self.password_entry.config(show='')
 
     def hide(self):
         self.show_button = Button(self.window, image=self.show_image, command=self.show, relief=FLAT,
                                   activebackground="white"
                                   , borderwidth=0, background="white", cursor="hand2")
-        self.show_button.place(x=1510, y=590)
+        self.show_button.place(x=1470, y=595)
         self.password_entry.config(show='*')
         
         

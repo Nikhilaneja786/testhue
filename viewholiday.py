@@ -16,9 +16,9 @@ class HolidayView():
         self.tr = Treeview(self.frame2, columns=('holiday name','type','start date', 'end date','delete'), show='headings')
         self.tr.column('# 1',anchor='w',stretch=NO,width=320)
         self.tr.column('# 2',anchor='w',stretch=NO,width=320)
-        self.tr.column('# 3',anchor='w',stretch=NO,width=320)
-        self.tr.column('# 4',anchor='w',stretch=NO,width=320)
-        self.tr.column('# 5',anchor='w',stretch=NO,width=320)
+        self.tr.column('# 3',anchor='c',stretch=NO,width=320)
+        self.tr.column('# 4',anchor='c',stretch=NO,width=320)
+        self.tr.column('# 5',anchor='c',stretch=NO,width=320)
 
         
         self.tr.heading(column='holiday name',text='Holiday Name')

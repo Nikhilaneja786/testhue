@@ -25,9 +25,9 @@ class dataview:
         # self.lgn_button_label.place(x=10, y=30)
         
         #view course
-        self.login = Button(self.btn_frame, text='View Course', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.btn_frame, text='View Course', font=("times new roman", 18, "bold"), width=11, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.cviw)
-        self.login.place(x=70, y=8)
+        self.login.place(x=50, y=8)
         
         
         # self.lgn_button = Image.open('images\\yellow.jpg')
@@ -37,9 +37,9 @@ class dataview:
         # self.lgn_button_label.place(x=300, y=30)
         
         #view student
-        self.login = Button(self.btn_frame, text='View Student', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.btn_frame, text='View Student', font=("times new roman", 18, "bold"), width=11, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.sviw)
-        self.login.place(x=370, y=8)
+        self.login.place(x=300, y=8)
         
         
         
@@ -51,21 +51,21 @@ class dataview:
         # self.lgn_button_label.place(x=590, y=30)
         
         #view staff
-        self.login = Button(self.btn_frame, text='View Staff', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.btn_frame, text='View Staff', font=("times new roman", 18, "bold"), width=11, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.tviw)
-        self.login.place(x=670, y=8)
+        self.login.place(x=550, y=8)
         
         
         # view note
-        self.login = Button(self.btn_frame, text='View Note', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.btn_frame, text='View Note', font=("times new roman", 18, "bold"), width=11, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.nviw)
-        self.login.place(x=970, y=8)
+        self.login.place(x=800, y=8)
         
         
         # view leave
-        self.login = Button(self.btn_frame, text='View Holiday', font=("times new roman", 18, "bold"), width=13, bd=0,
+        self.login = Button(self.btn_frame, text='View Holiday', font=("times new roman", 18, "bold"), width=11, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.hview)
-        self.login.place(x=1270, y=8)
+        self.login.place(x=1050, y=8)
         
         
     def sviw(self):

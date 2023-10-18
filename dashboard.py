@@ -8,7 +8,7 @@ import course
 import datavw
 import front
 import Addstudent
-import addevent
+# import addevent
 import dashboard
 import addholiday
 # import cview

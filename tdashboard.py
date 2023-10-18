@@ -30,27 +30,27 @@ class main():
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=25,height=20,bg='#035995')
         self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=30, y=120)
+        self.lgn_button_label.place(x=30, y=110)
         
         
    
         self.login = Button(self.frame1, text='Home', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
-        self.login.place(x=80, y=110)
+        self.login.place(x=80, y=100)
         
         
         
         #Attendence
         
-        self.lgn_button = Image.open('images\\addstaff.png')
+        self.lgn_button = Image.open('images\\attendance.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=195)
+        self.lgn_button_label.place(x=10, y=185)
  
         self.login = Button(self.frame1, text='Attendence ', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
-        self.login.place(x=80, y=200)
+        self.login.place(x=80, y=190)
         
         
         #add leave
@@ -59,12 +59,12 @@ class main():
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=285)
+        self.lgn_button_label.place(x=10, y=275)
         
       
         self.login = Button(self.frame1, text='Addd Leave', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
-        self.login.place(x=80, y=290)
+        self.login.place(x=80, y=280)
         
         
         #add note
@@ -72,11 +72,11 @@ class main():
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=375)
+        self.lgn_button_label.place(x=10, y=365)
      
         self.login = Button(self.frame1, text='View Data', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
-        self.login.place(x=80, y=380)
+        self.login.place(x=80, y=370)
         
         
         # logout

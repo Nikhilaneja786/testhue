@@ -16,12 +16,12 @@ class vwt():
 
         self.tr = Treeview(self.frame2, columns=('name', 'd.o.b','contact','qualification','gender','edit', 'delete'), show='headings')
         self.tr.column('# 1',anchor='w',stretch=NO,width=220)
-        self.tr.column('# 2',anchor='w',stretch=NO,width=220)
-        self.tr.column('# 3',anchor='w',stretch=NO,width=220)
+        self.tr.column('# 2',anchor='c',stretch=NO,width=220)
+        self.tr.column('# 3',anchor='c',stretch=NO,width=220)
         self.tr.column('# 4',anchor='w',stretch=NO,width=220)
         self.tr.column('# 5',anchor='w',stretch=NO,width=220)
-        self.tr.column('# 6',anchor='w',stretch=NO,width=220)
-        self.tr.column('# 7',anchor='w',stretch=NO,width=220)
+        self.tr.column('# 6',anchor='c',stretch=NO,width=220)
+        self.tr.column('# 7',anchor='c',stretch=NO,width=220)
         
         
         # self.tr.heading(column='id',text='Id')

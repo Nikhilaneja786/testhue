@@ -14,17 +14,17 @@ class cw():
         self.frame2.place(x='300',y='90') 
   
 
-        self.tr = Treeview(self.frame2, columns=('name', 'username', 'edit', 'delete'), show='headings')
+        self.tr = Treeview(self.frame2, columns=('name', 'duration', 'edit', 'delete'), show='headings')
         self.tr.column('# 1',anchor='w',stretch=NO,width=390)
-        self.tr.column('# 2',anchor='w',stretch=NO,width=390)
-        self.tr.column('# 3',anchor='w',stretch=NO,width=390)
-        self.tr.column('# 4',anchor='w',stretch=NO,width=390)
+        self.tr.column('# 2',anchor='c',stretch=NO,width=390)
+        self.tr.column('# 3',anchor='c',stretch=NO,width=390)
+        self.tr.column('# 4',anchor='c',stretch=NO,width=390)
         # self.tr.heading('id', text="ID")
         
         self.tr.heading('name', text="Name")
         
         
-        self.tr.heading('username', text="Duration")
+        self.tr.heading('duration', text="Duration")
         
         
         self.tr.heading('edit', text="Edit")
