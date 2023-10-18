@@ -105,10 +105,28 @@ class main():
         self.lbl.place(x=1.5,y=15) 
         
         
+        self.lgn_button = Image.open('images\\dashbut2.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=150+60, y=80)
         
-        self.image = ImageTk.PhotoImage(file="images/nik.jpg")
-        self.dassimage = Label(self.frame2, image=self.image,height=750,width=700)
-        self.dassimage.place(x=470, y=120)
+        
+        self.lgn_button = Image.open('images\\dashbut.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=150+460, y=80)
+        
+        self.lgn_button = Image.open('images\\dashbut3.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=150+860, y=80)
+        
+        # self.image = ImageTk.PhotoImage(file="images/nik.jpg")
+        # self.dassimage = Label(self.frame2, image=self.image,height=750,width=700)
+        # self.dassimage.place(x=470, y=120)
 
 # time
         # self.clock_image = ImageTk.PhotoImage(file="images/time.png")
