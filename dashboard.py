@@ -8,8 +8,7 @@ import course
 import datavw
 import front
 import Addstudent
-
-# import database
+import addevent
 import dashboard
 import addholiday
 # import cview
@@ -120,16 +119,16 @@ class main():
         
         
         #add event
-        self.lgn_button = Image.open('images\\event.png')
-        photo = ImageTk.PhotoImage(self.lgn_button)
-        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
-        self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=640)
+        # self.lgn_button = Image.open('images\\event.png')
+        # photo = ImageTk.PhotoImage(self.lgn_button)
+        # self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
+        # self.lgn_button_label.image = photo
+        # self.lgn_button_label.place(x=10, y=640)
        
    
-        self.login = Button(self.frame1, text='Add Event', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white')
-        self.login.place(x=80, y=640)
+        # self.login = Button(self.frame1, text='Add Event', font=("times new roman", 18, "bold"), width=13, bd=0,
+        #                     bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white',command=self.event)
+        # self.login.place(x=80, y=640)
         
         
         
@@ -142,7 +141,7 @@ class main():
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=730)
+        self.lgn_button_label.place(x=10, y=640)
         
         # self.lgn_button = Image.open('images\\btn5.jpg')
         # photo = ImageTk.PhotoImage(self.lgn_button)
@@ -151,7 +150,7 @@ class main():
         # self.lgn_button_label.place(x=80, y=640)
         self.login = Button(self.frame1, text='View Data', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white',command=self.dviw)
-        self.login.place(x=80, y=730)
+        self.login.place(x=80, y=640)
         
     
         
@@ -202,7 +201,7 @@ class main():
     #     self.date_time.configure(text=set_text, font=("times new roman", 13, "bold"), bd=0, bg="#585556", fg="white")
     #     self.date_time.after(100, self.show_time)
 
-        
+       
         self.root.mainloop()
         
     def log(self):
@@ -215,11 +214,6 @@ class main():
             return None
             
 
-        
-            
-            
-            
-        
     def tech(self):
         teacher.Addteacher(self.frame2)
         
@@ -251,13 +245,13 @@ class main():
         
     def note(self):
         addnote.noteadd(self.frame2)
-
-    
+            
     def holiday(self):
+        # print('j')
         addholiday.holidayadd(self.frame2)
                 
-    def dash():
-        root=Tk
+    # def event(self):
+    #     addevent.eventadd(self.frame2)
         
 if __name__=='__main__':
     obj=main()

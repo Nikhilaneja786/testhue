@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 from tkcalendar import DateEntry
 # from datetime import *
 # import time
-# import database
+import database
 
 # import database
 
@@ -59,6 +59,7 @@ class holidayadd:
         self.lb1.place(x='95',y='440') 
         
         self.username_entry4 = DateEntry(self.frame2)
+        # self.username_entry4.insert(0,'dd/mm/yyyy')
         self.username_entry4.place(x=100, y=520, width=500,height=30)
         self.username_entry4.config(state='readonly')
         
@@ -68,21 +69,25 @@ class holidayadd:
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=90, y=650)
         self.login = Button(self.lgn_button_label, text='ADD', font=('monoco', 13, "bold"), width=25, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995',pady=-1, fg='white')
+                            bg='#035995', cursor='hand2', activebackground='#035995',pady=-1, fg='white',command=self.Addholiday)
         
         #3047ff
         self.login.place(x=20, y=12)
         
-    # def Addnote(self):
+    def Addholiday(self):
      
-    #     if self.username_entry1.get() and self.username_entry2.get():
-    #         res=database.Addnote((self.username_entry1.get(),self.username_entry2.get()))
-    #         if res:
-    #             messagebox.showinfo('success',' Add successfully')
-    #         else:
-    #             messagebox.showinfo('alert','something went wrong')
-    #     else:
-    #             messagebox.showinfo('alert','please enter your details')
+        if self.username_entry1.get() and self.username_entry2.get() and self.username_entry3.get() and self.username_entry4.get():
+            # s=self.username_entry3.get()
+            # print(s)
+            # n=self.username_entry4.get()
+            # print(n)
+            res=database.Addholiday((self.username_entry1.get(),self.username_entry2.get(), self.username_entry3.get(),self.username_entry4.get()))
+            if res:
+                messagebox.showinfo('success',' Add successfully')
+            else:
+                messagebox.showinfo('alert','something went wrong')
+        else:
+                messagebox.showinfo('alert','please enter your details')
         
 if __name__=='__main__':
     holidayadd() 

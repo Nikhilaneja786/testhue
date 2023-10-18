@@ -5,6 +5,7 @@ import sview
 import tview
 import cview
 import vnote
+import viewholiday
 # import database
 
 class dataview:
@@ -62,8 +63,8 @@ class dataview:
         
         
         # view leave
-        self.login = Button(self.btn_frame, text='View Leave', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white')
+        self.login = Button(self.btn_frame, text='View Holiday', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.hview)
         self.login.place(x=1270, y=8)
         
         
@@ -78,7 +79,10 @@ class dataview:
         
     def nviw(self):
         vnote.nw(self.frame2)
-        
+    
+    def hview(self):
+        # print('yuyg')
+        viewholiday.HolidayView(self.frame2)
         
 if __name__=='__main__':
     dataview() 

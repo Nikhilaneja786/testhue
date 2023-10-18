@@ -115,3 +115,24 @@ def Studenteview():
     except Exception as e:
         print(e)
         return False
+    
+    
+def Addholiday(data):
+    try:
+        cursor.execute('INSERT INTO `addholiday`(`holidayname`,`type`,`startdate`,`enddate`) VALUES(%s,%s,%s,%s)',data)
+        # return cursor.fetchone()
+        Info.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+    
+def Hview():
+    try:
+        cursor.execute('select * from `addholiday`')
+        return cursor.fetchall()
+        # Info.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
