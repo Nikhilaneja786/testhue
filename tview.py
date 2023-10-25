@@ -4,6 +4,7 @@ from tkinter.ttk import Treeview
 from tkinter import messagebox
 import database
 import editstaff
+import teacher
 class vwt():
     # constructor
     # def __init__(self):
@@ -72,11 +73,12 @@ class vwt():
                                         messagebox.showerror('Alert', 'Something went wrong.')
                 if col == '#6':
                         print('hyhivgh')
-                        # self.frame6.destroy()
-                        self.obj=editstaff.Editstaff(gup)
+                        # self.frame2.destroy()
+                        self.obj=teacher.Addteacher(self)
+                        # print('bjk')
                         # obj.frame2(gup)
             
     
    
 if __name__ == '__main__':
-    obj = vwt()
+    vwt()

@@ -150,7 +150,7 @@ def selectstaff(arg):
 def updatestaff(arg):
 
     try:
-        cursor.execute('update addstaff SET name=%s,dob=%s,contact=%s,qualification=%s,gender=%s,username=%s,password=%s where id=%s', arg)
+        cursor.execute('update addstaff SET name=%s,dob=%s,contact=%s,qualification=%s,gender=%s where id=%s', arg)
         Info.commit()
         return True
     except:
