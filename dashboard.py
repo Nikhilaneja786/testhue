@@ -14,7 +14,7 @@ import addholiday
 # import cview
 # import sview
 # import LoginPage
-# import subject
+import database
 import addnote
 
 class main():
@@ -180,24 +180,77 @@ class main():
         self.lbl.place(x=1.5,y=15)
         
         
+        
+        #addstaff
         self.lgn_button = Image.open('images\\dashbut2.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
-        self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
-        self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=150+60, y=80)
+        self.lgn_button_label1 = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
+        self.lgn_button_label1.image = photo
+        self.lgn_button_label1.place(x=100, y=80)
+        
+        count=0
+        for data in database.Tstaff():
+            count+=1
+            
+        self.countTeacher=Label(self.lgn_button_label1,text=count,bg='#FF91A5',fg='black',font=('',15,'bold'))
+        print(count)
+        self.countTeacher.place(x=215,y=110)
         
         
+        #showstudent
         self.lgn_button = Image.open('images\\dashbut.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
-        self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
-        self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=150+460, y=80)
+        self.lgn_button_label2 = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
+        self.lgn_button_label2.image = photo
+        self.lgn_button_label2.place(x=440, y=80)
         
+        
+        count=0
+        for data in database.Studenteview():
+            count+=1
+            
+        self.countTeacher=Label(self.lgn_button_label2,text=count,bg='#ffcd5e',fg='black',font=('',15,'bold'))
+        print(count)
+        self.countTeacher.place(x=215,y=110)
+       
+        
+        
+        
+        #addcourse
         self.lgn_button = Image.open('images\\dashbut3.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
-        self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
-        self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=150+860, y=80)
+        self.lgn_button_label3 = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
+        self.lgn_button_label3.image = photo
+        self.lgn_button_label3.place(x=780, y=80)
+        
+        
+        
+        count=0
+        for data in database.courseview():
+            count+=1
+            
+        self.countTeacher=Label(self.lgn_button_label3,text=count,bg='#95ff93',fg='black',font=('',15,'bold'))
+        print(count)
+        self.countTeacher.place(x=215,y=110)
+        
+        
+        
+        
+        #addnote
+        self.lgn_button = Image.open('images\\but5.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label4 = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
+        self.lgn_button_label4.image = photo
+        self.lgn_button_label4.place(x=1160, y=80)
+        
+        
+        count=0
+        for data in database.vnote():
+            count+=1
+            
+        self.countTeacher=Label(self.lgn_button_label4,text=count,bg='#38ABFE',fg='black',font=('',15,'bold'))
+        print(count)
+        self.countTeacher.place(x=200,y=110)
         
         # # nik
         # self.image = ImageTk.PhotoImage(file="images/cm.jpg")
