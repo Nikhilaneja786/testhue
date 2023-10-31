@@ -57,7 +57,7 @@ class dataview:
         
         
         # view note
-        self.login = Button(self.btn_frame, text='View Note', font=("times new roman", 18, "bold"), width=11, bd=0,
+        self.login = Button(self.btn_frame, text='View Notice', font=("times new roman", 18, "bold"), width=11, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.nviw)
         self.login.place(x=800, y=8)
         
@@ -67,6 +67,12 @@ class dataview:
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',command=self.hview)
         self.login.place(x=1050, y=8)
         
+        
+        
+        #view attendance
+        self.login = Button(self.btn_frame, text='View Attendance', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white')
+        self.login.place(x=1300, y=8)
         
     def sviw(self):
         sview.sw(self.frame2)

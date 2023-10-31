@@ -15,8 +15,8 @@ class Addteacher:
         
         
         
-        self.lbl=Label(self.frame2,text='ADD STAFF',bg='white',fg='#035995',font=('times new roman',24,'bold'),width=85,anchor='w',padx=90)
-        self.lbl.place(x=1.5,y=0)
+        self.lbl=Label(self.frame2,text='Add Staff',bg='white',fg='#035995',font=('times new roman',24,'bold'),width=85,anchor='w',padx=90)
+        self.lbl.place(x=650,y=0)
      
         
         #1  
@@ -28,7 +28,7 @@ class Addteacher:
         self.username_entry1.place(x=100, y=145, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=170)  
-        
+        # self.username_entry1.bind('<Return>', self.next_entry)
         
          
         #2
@@ -38,7 +38,7 @@ class Addteacher:
         self.username_entry2 = DateEntry(self.frame2)
         self.username_entry2.place(x=100, y=250, width=500,height=30)
         self.username_entry2.config(state='readonly')
-        
+        # self.username_entry2.bind('<Return>', self.next_entry)
         
         #3
         self.lb1=Label(self.frame2, text='Contact',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -50,7 +50,7 @@ class Addteacher:
         self.username_entry3.place(x=100, y=355, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=380)
-        
+        # self.username_entry3.bind('<Return>', self.next_entry)
         
         #4
         self.lb1=Label(self.frame2, text='Qualification',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -61,6 +61,7 @@ class Addteacher:
         self.username_entry4.place(x=100, y=460, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=485)
+        # self.username_entry4.bind('<Return>', self.next_entry)
         
         #5
         self.lb1=Label(self.frame2, text='Gender',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -71,7 +72,7 @@ class Addteacher:
         self.subCombo1.config(state='readonly')
         self.subCombo1.pack()
         self.subCombo1.place(x=100, y=550,width=190,height=30)
-        
+        # self.subCombo1.bind('<Return>', self.next_entry)
         
         
         
@@ -85,7 +86,7 @@ class Addteacher:
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=675)
         
-        
+        # self.username_entry5.bind('<Return>', self.next_entry)
         
         #7
         self.lb1=Label(self.frame2, text='Password',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -96,7 +97,7 @@ class Addteacher:
         self.username_entry6.place(x=100, y=750, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=775)
-
+        # self.username_entry6.bind('<Return>', self.next_entry)
         
         # #040405#bdb9b1
 
@@ -112,6 +113,9 @@ class Addteacher:
         #3047ff
         self.login.place(x=18, y=8)
         
+    
+    # def next_entry(self, event):
+    #     event.widget.tk_focusNext().focus()
         
     def addstaff(self):
         if self.username_entry1.get() and self.username_entry2.get() and self.username_entry3.get() and self.username_entry4.get() and self.subCombo1.get() and self.username_entry5.get() and self.username_entry6.get():

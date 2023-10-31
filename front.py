@@ -42,10 +42,8 @@ class main():
                 
             self.root.destroy()
             LoginPage.page()
-        
-        
-        
-        
+            
+            
 if __name__=='__main__':
     main()
     

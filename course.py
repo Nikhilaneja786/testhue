@@ -14,8 +14,8 @@ class Addcourse:
         self.frame2.place(x='300',y='0') 
      
      
-        self.lbl=Label(self.frame2,text='ADD COURSE',bg='white',fg='#035995',font=('times new roman',24,'bold'),width=12)
-        self.lbl.place(x=650,y=12)
+        self.lbl=Label(self.frame2,text='Add Course',bg='white',fg='#035995',font=('times new roman',24,'bold'),width=85,anchor='w',padx=90)
+        self.lbl.place(x=650,y=0)
      
         
         #1

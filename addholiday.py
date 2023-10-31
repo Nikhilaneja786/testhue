@@ -18,7 +18,7 @@ class holidayadd:
      
     
         self.lbl=Label(self.frame2,text='Add Holiday',bg='white',fg='#035995',font=('times new roman',24,'bold'),width=85,anchor='w',padx=90)
-        self.lbl.place(x=1.5,y=0)
+        self.lbl.place(x=650,y=0)
      
        
       

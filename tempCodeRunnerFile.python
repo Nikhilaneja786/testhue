@@ -1,81 +1,33 @@
-from tkinter import  *
-# from tkinter import messagebox
-# from PIL import Image, ImageTk
-class AttendanceSystem:
-    def __init__(self):
-        
-    
-        self.root=Tk()
-        self.root.title("main")
-        # self.root.geometry('700x500')
-        self.root.geometry('1900x1000')
-        self.root.config(bg='white')
-        self.root.resizable(False,False)
-        self.attendance = {}
+import tkinter as tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
 
-    def mark_attendance(self, student_id, name):
-        if student_id in self.attendance:
-            print(f"{name} is already marked as present.")
-        else:
-            self.attendance[student_id] = name
-            print(f"{name} is marked as present.")
+def create_bar_chart():
+    # Data for the bar chart
+    categories = ['Category A', 'Category B', 'Category C', 'Category D']
+    values = [30, 25, 20, 25]
 
-    def view_attendance(self):
-        if not self.attendance:
-            print("No attendance records found.")
-        else:
-            print("Attendance Records:")
-            for student_id, name in self.attendance.items():
-                print(f"Student ID: {student_id}, Name: {name}")
+    # Create a figure and axis for the bar chart
+    fig, ax = plt.subplots()
+    ax.bar(categories, values, color='blue')
 
-    def save_attendance_to_file(self, file_name):
-        with open(file_name, "w") as file:
-            for student_id, name in self.attendance.items():
-                file.write(f"{student_id},{name}\n")
-        print(f"Attendance data saved to {file_name}.")
+    # Add labels and title
+    ax.set_xlabel('Categories')
+    ax.set_ylabel('Values')
+    ax.set_title('Bar Chart Example')
 
-    def load_attendance_from_file(self, file_name):
-        try:
-            with open(file_name, "r") as file:
-                for line in file:
-                    student_id, name = line.strip().split(',')
-                    self.attendance[student_id] = name
-            print(f"Attendance data loaded from {file_name}.")
-        except FileNotFoundError:
-            print(f"File {file_name} not found.")
+    # Embed the bar chart in a Tkinter canvas
+    canvas = FigureCanvasTkAgg(fig, master=window)
+    canvas_widget = canvas.get_tk_widget()
+    canvas_widget.pack()
 
-def main():
-    attendance_system = AttendanceSystem()
+# Create a Tkinter window
+window = tk.Tk()
+window.title("Bar Chart Example")
+window.geometry("600x400")
 
-    while True:
-        print("\nAttendance System Menu:")
-        print("1. Mark Attendance")
-        print("2. View Attendance")
-        print("3. Save Attendance to File")
-        print("4. Load Attendance from File")
-        print("5. Exit")
+# Create a button to display the bar chart
+button = tk.Button(window, text="Show Bar Chart", command=create_bar_chart)
+button.pack()
 
-        choice = input("Enter your choice: ")
-
-        if choice == "1":
-            student_id = input("Enter Student ID: ")
-            name = input("Enter Name: ")
-            attendance_system.mark_attendance(student_id, name)
-        elif choice == "2":
-            attendance_system.view_attendance()
-        elif choice == "3":
-            file_name = input("Enter file name to save attendance: ")
-            attendance_system.save_attendance_to_file(file_name)
-        elif choice == "4":
-            file_name = input("Enter file name to load attendance: ")
-            attendance_system.load_attendance_from_file(file_name)
-        elif choice == "5":
-            print("Exiting the Attendance System.")
-            break
-        else:
-            print("Invalid choice. Please select a valid option.")
-            
-        
-
-if __name__ == "__main__":
-    main()
+window.mainloop()

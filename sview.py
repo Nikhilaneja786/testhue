@@ -50,7 +50,7 @@ class sw():
 
         
         for i in data:
-            self.tr.insert('', 0, text = i[0], values = (i[1], i[2],i[3],i[4],i[5],i[6] ,'Edit', 'Delete'))
+            self.tr.insert('', 'end', text = i[0], values = (i[1], i[2],i[3],i[4],i[5],i[6] ,'Edit', 'Delete'))
         self.tr.place(x=1.5,y=1,width=1600,height=1050)
         
         # self.tr.bind('<Double-Button-1>',self.actions)
@@ -82,7 +82,7 @@ class sw():
     #                                     messagebox.showerror('Alert', 'Something went wrong.')
     #             if col == '#7':
     #                     self.frame6.destroy()
-    #                     self.obj = editstaff.Editstaff(gup)
+    #                     # self.obj = editstaff.Editstaff(gup)
     #                     # obj.frame2(gup)
 
    

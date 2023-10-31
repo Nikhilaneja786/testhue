@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter.ttk import Treeview
 from tkinter import messagebox
 import database
+from tkinter import ttk
 
 class nw():
     # constructor
@@ -31,7 +32,7 @@ class nw():
 
         
         for i in data:
-            self.tr.insert('', 0, text = i[0], values = (i[1], i[2],i[3], 'Delete'))
+            self.tr.insert('', 'end', text = i[0], values = (i[1], i[2],i[3], 'Delete'))
         self.tr.place(x=1.5,y=1,width=1600,height=1050)
         
         

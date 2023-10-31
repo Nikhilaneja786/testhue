@@ -15,8 +15,8 @@ class student:
         
         
         
-        self.lbl=Label(self.frame2,text='Add Students',bg='#035995',fg='#ffffff',font=('times new roman',24,'bold'),anchor='w',width=10)
-        self.lbl.place(x=85,y=5)
+        self.lbl=Label(self.frame2,text='Add Students',bg='white',fg='#035995',font=('times new roman',24,'bold'),width=85,anchor='w',padx=90)
+        self.lbl.place(x=650,y=0)
      
         
         #1
@@ -28,7 +28,7 @@ class student:
         self.username_entry1.place(x=100, y=155, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=180)
-        
+        # self.username_entry1.bind('<Return>', self.next_entry) 
         
         #2
         self.lb1=Label(self.frame2, text='D.O.B',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -37,7 +37,7 @@ class student:
         self.username_entry2 = DateEntry(self.frame2)
         self.username_entry2.place(x=100, y=260, width=500,height=30)
         self.username_entry2.config(state='readonly')
-        
+        # self.username_entry2.bind('<Return>', self.next_entry)
         
         #3
         self.lb1=Label(self.frame2, text='Contact',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -48,7 +48,7 @@ class student:
         self.username_entry3.place(x=100, y=365, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=390)
-        
+        # self.username_entry3.bind('<Return>', self.next_entry)
         
         #4
         self.lb1=Label(self.frame2, text='Address',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -59,7 +59,7 @@ class student:
         self.username_entry4.place(x=100, y=460, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=490)
-        
+        # self.username_entry4.bind('<Return>', self.next_entry)
         
         #5
         self.lb1=Label(self.frame2, text='Gender',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -71,7 +71,7 @@ class student:
         self.subCombo1.pack()
         self.subCombo1.place(x=250, y=540,width=190,height=30)
         
-        
+        # self.subCombo1.bind('<Return>', self.next_entry)
         #6
         self.lb1=Label(self.frame2, text='Course',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='635')
@@ -82,7 +82,7 @@ class student:
         self.subCombo2.config(state='readonly')
         self.subCombo2.pack()
         self.subCombo2.place(x=250, y=640,width=190,height=30)
-        
+        # self.subCombo2.bind('<Return>', self.next_entry)
         
         #6
        
@@ -103,8 +103,11 @@ class student:
         
         #3047ff
         self.login.place(x=18, y=8)
+        # self.login.bind('<Return>', self.next_entry)
 
-
+    # def next_entry(self, event):
+    #     event.widget.tk_focusNext().focus()
+        
     def Addstudent(self):
         if self.username_entry1.get() and self.username_entry2.get() and self.username_entry3.get() and self.subCombo1.get() and self.subCombo2.get() and self.username_entry4.get():
             res=database.Addstudent((self.username_entry1.get(),self.username_entry2.get(), self.username_entry3.get(),self.subCombo1.get(),self.subCombo2.get(), self.username_entry4.get()))

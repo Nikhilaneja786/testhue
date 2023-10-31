@@ -31,7 +31,7 @@ class HolidayView():
 
         
         for i in data:
-            self.tr.insert('', 0, text = i[0], values = (i[1], i[2],i[3],i[4], 'Delete'))
+            self.tr.insert('', 'end', text = i[0], values = (i[1], i[2],i[3],i[4], 'Delete'))
         self.tr.place(x=1.5,y=1,width=1600,height=1050)
         
         

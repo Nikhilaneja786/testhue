@@ -139,28 +139,29 @@ def Hview():
     
     
     
-def selectstaff(arg):
-    print("arsg = ",arg)
-    try:
-        cursor.execute('select * from addstaff where id = %s',arg)
-        return cursor.fetchall()
-    except:
-        return False
+# def selectstaff(arg):
+#     print("arsg = ",arg)
+#     try:
+#         cursor.execute('select * from addstaff where id = %s',arg)
+#         return cursor.fetchall()
+#     except:
+#         return False
 
-def updatestaff(arg):
+# def updatestaff(arg):
 
-    try:
-        cursor.execute('update addstaff SET name=%s,dob=%s,contact=%s,qualification=%s,gender=%s where id=%s', arg)
-        Info.commit()
-        return True
-    except:
-        return False
+#     try:
+#         cursor.execute('update addstaff SET name=%s,dob=%s,contact=%s,qualification=%s,gender=%s,username=%s,password=%s where id=%s', arg)
+#         Info.commit()
+        
+#         return True
+#     except:
+#         return False
     
-def deletestaff(gup):
-    print("arsg = ",gup)
-    try:
-        cursor.execute('Delete from addstaff where id = %s',gup)
-        Info.commit()
-        return True
-    except:
-        return False
+# def deletestaff(gup):
+#     print("arsg = ",gup)
+#     try:
+#         cursor.execute('Delete from addstaff where id = %s',gup)
+#         Info.commit()
+#         return True
+#     except:
+#         return False
