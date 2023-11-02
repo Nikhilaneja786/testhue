@@ -192,10 +192,10 @@ class main():
 
         
     
-        cal=Calendar(self.frame2)
-        cal = Calendar(self.frame2, font="Arial 13", selectmode='day', locale='en_US',
-               cursor="hand2")
-        cal.place(x=1150,y=490)
+        # cal=Calendar(self.frame2)
+        # cal = Calendar(self.frame2, font="Arial 13", selectmode='day', locale='en_US',
+        #        cursor="hand2")
+        # cal.place(x=1150,y=490)
         
         
         
@@ -271,66 +271,77 @@ class main():
         # print(count)
         self.countTeacher.place(x=200,y=110)
 
+        #frame
+        self.frame3 = Frame(self.frame2, bg='white',highlightbackground='black',highlightthickness=2, width=580, height=450)
+        self.frame3.place(x=150, y=450)
 
+        self.lbl=Label(self.frame3,text='Staff-Students Ratio',bg='#035995',fg='white',font=('times new roman',24,'bold'),width=29,padx=11,anchor='w')
+        self.lbl.place(x=0,y=0)
 
-
-
-        self.date_time = Label(self.frame2)
-        self.date_time.place(x=0, y=350)
+        self.date_time = Label(self.frame3)
+        self.date_time.place(x=10, y=42)
         self.create_pie_chart()
 
+        self.frame4 = Frame(self.frame2, bg='white',highlightbackground='black',highlightthickness=2, width=580, height=450)
+        self.frame4.place(x=860, y=450)
 
 
-        self.date_time1 = Label(self.frame2)
-        self.date_time1.place(x=600, y=350)
+        self.lbl=Label(self.frame4,text='Data-Count',bg='#035995',fg='white',font=('times new roman',24,'bold'),width=29,padx=11,anchor='w')
+        self.lbl.place(x=0,y=0)
+        
+        self.date_time1 = Label(self.frame4)
+        self.date_time1.place(x=20, y=42)
         self.create_bar_chart()
 
 
-        # self.date_time = Label(self.frame2)
-        # self.date_time.place(x=300, y=350)
-        # self.show_time()
+        self.date_time = Label(self.frame2)
+        self.date_time.place(x=1400, y=30)
+        self.show_time()
+    
         
         self.root.mainloop()
         
-    # def show_time(self):
-    #     self.time = time.strftime("%H:%M:%S",)
-    #     # self.date = time.strftime('%d/%h/%y')
-    #     set_text = f"  {self.time} "
-    #     self.date_time.configure(text=set_text, font=("times new roman", 20, "bold"), bd=0, bg="white", fg="#035995")
-    #     self.date_time.after(100, self.show_time)
+    def show_time(self):
+        self.time = time.strftime("%H:%M:%S",)
+        self.date = time.strftime('%d/%h/%y')
+        set_text = f"  {self.time} \n{self.date}"
+        self.date_time.configure(text=set_text, font=("times new roman", 20, "bold"), bd=0, bg="white", fg="#035995")
+        self.date_time.after(100, self.show_time)
 
 
     def create_pie_chart(self): 
         labels = [ 'Student', 'Staff']
-        sizes = [2,3]
+        sizes = [9,7]
         colors = [ '#ffcd5e', 'lightcoral']
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(5,4))
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=150)
-        ax.axis('equal') 
-        canvas = FigureCanvasTkAgg(fig, master=self.frame2)
+        ax.axis('equal')
+        # plt.figure(figsize=(4, 4)) 
+        canvas = FigureCanvasTkAgg(fig, master=self.frame3)
         canvas_widget = canvas.get_tk_widget()
-        canvas_widget.place(x=0,y=350)
+        canvas_widget.place(x=10,y=42)
   
     
     def create_bar_chart(self):
         # Data for the bar chart
         categories = ['Staff', 'Students', 'Course', 'Notice']
-        values = [1, 3, 1, 3]
+        values = [3,1,4,1]
         # colors = ['#ffcd5e', 'lightcoral', 'blue', 'orange']
-        colors = ['lightskyblue', '#95ff93', '#ffcd5e', 'lightcoral']
+        colors = ['lightcoral', '#ffcd5e', '#95ff93', 'lightskyblue']
         # Create a figure and axis for the bar chart
-        fig, ax = plt.subplots(figsize=(5,5))
+        fig, ax = plt.subplots(figsize=(5,4))
         ax.bar(categories, values, color=colors)
-        plt.figure(figsize=(5, 5))
+        # ax.bar.set_edgecolor(ax.bar.get_facecolor())
+        # plt.figure(figsize=(5, 4))
         # Add labels and title
-        ax.set_xlabel('Categories')
+        ax.set_xlabel('Names')
         ax.set_ylabel('Values')
-        ax.set_title('Bar Chart Example')
+        # ax.set_title('Bar Chart Example')
 
         # Embed the bar chart in a Tkinter canvas
-        canvas = FigureCanvasTkAgg(fig, master=self.frame2)
+        canvas = FigureCanvasTkAgg(fig, master=self.frame4)
         canvas_widget = canvas.get_tk_widget()
-        canvas_widget.place(x=600,y=350)
+        canvas_widget.place(x=20,y=42)
   
     
     def log(self):
@@ -425,21 +436,21 @@ class main():
         print(count)
         self.countTeacher.place(x=200,y=110)
         
-
-        self.date_time = Label(self.frame2)
-        self.date_time.place(x=0, y=350)
+        
+        self.date_time = Label(self.frame3)
+        self.date_time.place(x=10, y=42)
         self.create_pie_chart()
 
-
-
-        self.date_time1 = Label(self.frame2)
-        self.date_time1.place(x=600, y=350)
-        self.create_bar_chart()
         
-        cal=Calendar(self.frame2)
-        cal = Calendar(self.frame2, font="Arial 13", selectmode='day', locale='en_US',
-               cursor="hand2")
-        cal.place(x=1150,y=490)
+        self.date_time1 = Label(self.frame4)
+        self.date_time1.place(x=20, y=42)
+        self.create_bar_chart()
+
+
+        self.date_time = Label(self.frame2)
+        self.date_time.place(x=1400, y=30)
+        self.show_time()
+      
 
         dashboard.main(self)
         
@@ -513,3 +524,15 @@ if __name__=='__main__':
 
     #     # Display the pie chart
     #     plt.show()
+    
+    
+    
+    
+    
+    
+    
+    
+  # cal=Calendar(self.frame2)
+        # cal = Calendar(self.frame2, font="Arial 13", selectmode='day', locale='en_US',
+        #        cursor="hand2")
+        # cal.place(x=1150,y=490)

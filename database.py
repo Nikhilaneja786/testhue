@@ -135,9 +135,18 @@ def Hview():
         return True
     except Exception as e:
         print(e)
+        return False 
+
+def pieview():
+    try:
+        cursor.execute('select category, value from `addstaff`,`addstudent`')
+        return cursor.fetchall()
+        # Info.commit()
+        return True
+    except Exception as e:
+        print(e)
         return False
-    
-    
+
     
 # def selectstaff(arg):
 #     print("arsg = ",arg)
@@ -165,3 +174,4 @@ def Hview():
 #         return True
 #     except:
 #         return False
+
