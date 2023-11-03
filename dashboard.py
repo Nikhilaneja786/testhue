@@ -294,7 +294,7 @@ class main():
         self.create_bar_chart()
 
 
-        self.date_time = Label(self.frame2)
+        self.date_time= Label(self.frame2)
         self.date_time.place(x=1400, y=30)
         self.show_time()
     
@@ -437,17 +437,29 @@ class main():
         self.countTeacher.place(x=200,y=110)
         
         
+        self.frame3 = Frame(self.frame2, bg='white',highlightbackground='black',highlightthickness=2, width=580, height=450)
+        self.frame3.place(x=150, y=450)
+
+        self.lbl=Label(self.frame3,text='Staff-Students Ratio',bg='#035995',fg='white',font=('times new roman',24,'bold'),width=29,padx=11,anchor='w')
+        self.lbl.place(x=0,y=0)
+
         self.date_time = Label(self.frame3)
         self.date_time.place(x=10, y=42)
         self.create_pie_chart()
 
+        self.frame4 = Frame(self.frame2, bg='white',highlightbackground='black',highlightthickness=2, width=580, height=450)
+        self.frame4.place(x=860, y=450)
+
+
+        self.lbl=Label(self.frame4,text='Data-Count',bg='#035995',fg='white',font=('times new roman',24,'bold'),width=29,padx=11,anchor='w')
+        self.lbl.place(x=0,y=0)
         
         self.date_time1 = Label(self.frame4)
         self.date_time1.place(x=20, y=42)
         self.create_bar_chart()
 
 
-        self.date_time = Label(self.frame2)
+        self.date_time= Label(self.frame2)
         self.date_time.place(x=1400, y=30)
         self.show_time()
       

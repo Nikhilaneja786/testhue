@@ -1,33 +1,76 @@
-import tkinter as tk
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import matplotlib.pyplot as plt
+# import tkinter as tk
+# from tkinter import ttk
+# import matplotlib.pyplot as plt
+# from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+# import messagebox
+from tkinter import messagebox
 
-def create_bar_chart():
-    # Data for the bar chart
-    categories = ['Category A', 'Category B', 'Category C', 'Category D']
-    values = [30, 25, 20, 25]
+# def plot_graph():
+#     x = [1, 2, 3, 4, 5]
+#     y = [10, 8, 6, 4, 2]
 
-    # Create a figure and axis for the bar chart
-    fig, ax = plt.subplots()
-    ax.bar(categories, values, color='blue')
+#     fig, ax = plt.subplots()
+#     ax.plot(x, y)
+#     ax.set_xlabel('X-axis')
+#     ax.set_ylabel('Y-axis')
+#     ax.set_title('Sample Graph')
 
-    # Add labels and title
-    ax.set_xlabel('Categories')
-    ax.set_ylabel('Values')
-    ax.set_title('Bar Chart Example')
+#     canvas = FigureCanvasTkAgg(fig, master=frame)
+#     canvas_widget = canvas.get_tk_widget()
+#     canvas_widget.pack()
 
-    # Embed the bar chart in a Tkinter canvas
-    canvas = FigureCanvasTkAgg(fig, master=window)
-    canvas_widget = canvas.get_tk_widget()
-    canvas_widget.pack()
+# app = tk.Tk()
+# app.title("Matplotlib in Tkinter")
+# frame = ttk.Frame(app)
+# frame.pack()
 
-# Create a Tkinter window
-window = tk.Tk()
-window.title("Bar Chart Example")
-window.geometry("600x400")
+# plot_button = ttk.Button(app, text="Plot Graph", command=plot_graph)
+# plot_button.pack()
 
-# Create a button to display the bar chart
-button = tk.Button(window, text="Show Bar Chart", command=create_bar_chart)
-button.pack()
+# app.mainloop()
+from tkinter import *
+from tkinter.ttk import Treeview
 
-window.mainloop()
+class vwt:
+    def __init__(self, frame2):
+        self.frame2 = frame2
+
+        self.frame2 = Frame(width='1610', height='1050', bg='white')
+        self.frame2.place(x='300', y='90')
+
+        self.tr = Treeview(self.frame2, columns=('name', 'd.o.b', 'contact', 'qualification', 'gender', 'edit', 'delete'), show='headings')
+        # ... (column configuration code)
+
+        self.tr.place(x=1.5, y=1, width=1600, height=1050)
+
+        data = [
+            (1, 'John Doe', '01/01/1990', '123-456-7890', 'PhD', 'Male'),
+            (2, 'Jane Smith', '02/02/1985', '987-654-3210', 'MBA', 'Female')
+            # Add your data here
+        ]
+
+        for i in data:
+            self.tr.insert('', 'end', values=(i[0], i[1], i[2], i[3], i[4], 'Edit', 'Delete'))
+        self.tr.place(x=1.5, y=1, width=1600, height=1050)
+
+        self.tr.bind('<Double-Button-1>', self.actions)
+
+    def actions(self, e):
+        tt = self.tr.selection()  # Use selection() instead of focus()
+
+        col = self.tr.identify_column(e.x)
+
+        if col == '#7':
+            res = messagebox.askyesno("ALERT", "Do You Really Want to delete this item")
+            if res:
+                for item in tt:
+                    self.tr.delete(item)  # Delete the selected item from the Treeview
+
+        if col == '#6':
+            for item in tt:
+                self.tr.item(item, values=(item, 'Updated Name', 'Updated D.O.B', 'Updated Contact', 'Updated Qualification', 'Updated Gender', 'Edit', 'Delete'))
+
+if __name__ == '__main__':
+    root = Tk()
+    app = vwt(root)
+    root.mainloop()

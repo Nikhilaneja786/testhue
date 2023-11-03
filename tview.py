@@ -3,8 +3,9 @@ from tkinter import *
 from tkinter.ttk import Treeview
 from tkinter import messagebox
 import database
-# import staffedit
+import staffedit
 # import teacher
+# import viewholiday
 # import tview
 class vwt():
     # constructor
@@ -45,68 +46,38 @@ class vwt():
             self.tr.insert('', 'end', text = i[0], values = (i[1],i[2],i[3],i[4],i[5], 'Edit', 'Delete'))
         self.tr.place(x=1.5,y=1,width=1600,height=1050)
         
-    #     self.tr.bind('<Double-Button-1>',self.actions)
+        self.tr.bind('<Double-Button-1>',self.actions)
         
-    # def actions(self, e):
-    #             print('fgghhgf')
-    #             # get the values of the selected rows\\
-    #             tt = self.tr.focus()
+    
+    def actions(self, e):
+                # get the values of the selected rows\\
+                tt = self.tr.focus()
 
-    #             # get the column id
-    #             col = self.tr.identify_column(e.x)
-    #             # print(col)
-    #             # print(self.tr.item(tt))
+                # get the column id
+                col = self.tr.identify_column(e.x)
+                # print(col)
+                # print(self.tr.item(tt))
 
-    #             gup = (
-    #                 self.tr.item(tt).get('text'),
-    #             )
-    #             print("gu = ",gup)
-    #             if col == '#7':
-    #                     res = messagebox.askyesno("ALERT", "Do You Realy Want to delete this item")
-    #                     if res:
-    #                             rs = database.deletestaff(gup)
-    #                             if rs:
-    #                                     messagebox.showinfo("Success", "Suuccessfully Deleted")
-    #                                     # self.frame6.destroy()
-    #                                     # obj = viewCategory(self.frame6)
-    #                                     # obj.firstFrame()
-    #                             else:
-    #                                     messagebox.showerror('Alert', 'Something went wrong.')
-                                        
-    #             if col == '#6':
-    #                 # print('hyhivgh')
-    #                     # self.frame2.destroy()
-    #                 self.obj=staffedit.estaff(gup)
-                        # print('bjk')
-                        # obj.frame2(gup)
-    # def actions(self, e):
-    #             # get the values of the selected rows\\
-    #             tt = self.tr.focus()
-
-    #             # get the column id
-    #             col = self.tr.identify_column(e.x)
-    #             # print(col)
-    #             # print(self.tr.item(tt))
-
-    #             gup = (
-    #                 self.tr.item(tt).get('text'),
-    #             )
-    #             print("gu = ",gup)
-    #             if col == '#7':
-    #                     res = messagebox.askyesno("ALERT", "Do You Realy Want to delete this item")
-    #                     if res:
-    #                             rs = database.deletestaff(gup)
-    #                             if rs:
-    #                                     messagebox.showinfo("Success", "Suuccessfully Deleted")
-    #                                     # self.frame2.destroy()
-    #                                     # obj = tview(self.frame2)
-    #                                     # obj.firstFrame()
-    #                             else:
-    #                                     messagebox.showerror('Alert', 'Something went wrong.')
-    #             if col == '#6':
-    #                     # self.frame2.destroy()
-    #                     self.obj=staffedit.estaff(gup)
-    #                     # obj.frame2(gup)
+                gup = (
+                    self.tr.item(tt).get('text'),
+                )
+                print("gu = ",gup)
+                if col == '#7':
+                        res = messagebox.askyesno("ALERT", "Do You Realy Want to delete this item")
+                        if res:
+                                rs = database.deletestaff(gup)
+                                if rs:
+                                        messagebox.showinfo("Success", "Suuccessfully Deleted")
+                                        # self.frame2.destroy()
+                                        # obj = tview(self.frame2)
+                                        # obj.firstFrame()
+                                else:
+                                        messagebox.showerror('Alert', 'Something went wrong.')
+                if col == '#6':
+                        # self.frame2.destroy()
+                        # for item in tt:
+                            self.obj=staffedit.estaff(gup)
+                        # obj.frame2(gup)
             
     
    

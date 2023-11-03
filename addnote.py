@@ -70,5 +70,7 @@ class noteadd:
         else:
                 messagebox.showinfo('alert','please enter your details')
         
+        
+        
 if __name__=='__main__':
     noteadd() 

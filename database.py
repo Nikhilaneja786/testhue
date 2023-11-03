@@ -95,7 +95,7 @@ def COMBOCOURSE():
         return False
     
 
-
+#addstudent
 def Addstudent(data):
     try:
         cursor.execute('INSERT INTO `addstudent`(`name`,`dob`,`contact`,`gender`,`course`,`address`) VALUES(%s,%s,%s,%s,%s,%s)',data)
@@ -116,7 +116,7 @@ def Studenteview():
         print(e)
         return False
     
-    
+#holiday
 def Addholiday(data):
     try:
         cursor.execute('INSERT INTO `addholiday`(`holidayname`,`type`,`startdate`,`enddate`) VALUES(%s,%s,%s,%s)',data)
@@ -137,41 +137,123 @@ def Hview():
         print(e)
         return False 
 
-def pieview():
+# def pieview():
+#     try:
+#         cursor.execute('select category, value from `addstaff`,`addstudent`')
+#         return cursor.fetchall()
+#         # Info.commit()
+#         return True
+#     except Exception as e:
+#         print(e)
+#         return False
+
+#staff edit delete    
+def selectstaff(arg):
+    print("arsg = ",arg)
     try:
-        cursor.execute('select category, value from `addstaff`,`addstudent`')
+        cursor.execute('select * from addstaff where id = %s',arg)
         return cursor.fetchall()
-        # Info.commit()
-        return True
-    except Exception as e:
-        print(e)
+    except:
         return False
 
-    
-# def selectstaff(arg):
-#     print("arsg = ",arg)
-#     try:
-#         cursor.execute('select * from addstaff where id = %s',arg)
-#         return cursor.fetchall()
-#     except:
-#         return False
+def updatestaff(arg):
 
-# def updatestaff(arg):
-
-#     try:
-#         cursor.execute('update addstaff SET name=%s,dob=%s,contact=%s,qualification=%s,gender=%s,username=%s,password=%s where id=%s', arg)
-#         Info.commit()
+    try:
+        cursor.execute('update addstaff SET name=%s,dob=%s,contact=%s,qualification=%s,gender=%s,username=%s,password=%s where id=%s', arg)
+        Info.commit()
         
-#         return True
-#     except:
-#         return False
+        return True
+    except:
+        return False
     
-# def deletestaff(gup):
-#     print("arsg = ",gup)
-#     try:
-#         cursor.execute('Delete from addstaff where id = %s',gup)
-#         Info.commit()
-#         return True
-#     except:
-#         return False
+def deletestaff(gup):
+    print("arsg = ",gup)
+    try:
+        cursor.execute('Delete from addstaff where id = %s',gup)
+        Info.commit()
+        return True
+    except:
+        return False
 
+
+#student edit delete 
+
+def selectstudent(arg):
+    print("arsg = ",arg)
+    try:
+        cursor.execute('select * from addstudent where id = %s',arg)
+        return cursor.fetchall()
+    except:
+        return False
+
+def updatestudent(arg):
+
+    try:
+        cursor.execute('update addstudent SET name=%s,dob=%s,contact=%s,gender=%s,course=%s where id=%s', arg)
+        Info.commit()
+        return True
+    except:
+        return False
+    
+def deletestudent(gup):
+    print("arsg = ",gup)
+    try:
+        cursor.execute('Delete from addstudent where id = %s',gup)
+        Info.commit()
+        return True
+    except:
+        return False
+    
+    
+#holiday edit delete 
+def deleteholiday(gup):
+    print("arsg = ",gup)
+    try:
+        cursor.execute('Delete from addholiday where id = %s',gup)
+        Info.commit()
+        return True
+    except:
+        return False
+    
+    
+#notice edit delete 
+def deletenotice(gup):
+    print("arsg = ",gup)
+    try:
+        cursor.execute('Delete from addnote where id = %s',gup)
+        Info.commit()
+        return True
+    except:
+        return False
+
+
+#coursedelete
+
+
+def selectcourse(arg):
+    print("arsg = ",arg)
+    try:
+        cursor.execute('select * from addcourse where id = %s',arg)
+        return cursor.fetchall()
+    except:
+        return False
+
+def updatecourse(arg):
+
+    try:
+        cursor.execute('update addcourse SET name=%s,duration =%s where id=%s', arg)
+        Info.commit()
+        
+        return True
+    except:
+        return False
+    
+def deletecourse(gup):
+    print("arsg = ",gup)
+    try:
+        cursor.execute('Delete from addcourse where id = %s',gup)
+        Info.commit()
+        return True
+    except:
+        return False
+    
