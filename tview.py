@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter.ttk import Treeview
 from tkinter import messagebox
 import database
-import staffedit
+import edit
 # import teacher
 # import viewholiday
 # import tview
@@ -59,7 +59,7 @@ class vwt():
                 # print(self.tr.item(tt))
 
                 gup = (
-                    self.tr.item(tt).get('text'),
+                    self.tr.item(tt).get('text '),
                 )
                 print("gu = ",gup)
                 if col == '#7':
@@ -69,14 +69,15 @@ class vwt():
                                 if rs:
                                         messagebox.showinfo("Success", "Suuccessfully Deleted")
                                         # self.frame2.destroy()
-                                        # obj = tview(self.frame2)
+                                        obj = vwt(self.frame2)
                                         # obj.firstFrame()
                                 else:
                                         messagebox.showerror('Alert', 'Something went wrong.')
                 if col == '#6':
                         # self.frame2.destroy()
                         # for item in tt:
-                            self.obj=staffedit.estaff(gup)
+                        
+                        self.obj=edit.st(gup)
                         # obj.frame2(gup)
             
     

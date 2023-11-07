@@ -2,6 +2,7 @@ from tkinter import  *
 # from tkinter import messagebox
 from PIL import Image, ImageTk
 import LoginPage
+import loginpaget
 class main():
     def __init__(self):
     
@@ -32,16 +33,32 @@ class main():
                             bg='white', cursor='hand2', activebackground='white', fg='#035995',command=self.sun)
         self.login.place(x=10, y=8)
         
+        self.lgn_button = Image.open('images\\butt2.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.home_frame, image=photo, bg='#035995')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=820, y=580)
+        self.login = Button(self.lgn_button_label, text='Continue As Teacher', font=("yu gothic ui", 13, "bold"), width=25, bd=0,
+                            bg='white', cursor='hand2', activebackground='white', fg='#035995',command=self.mun)
+        self.login.place(x=10, y=8)
         #main loop#3047ff
         self.root.mainloop()
         
     def sun (self):
-        # print('button is clicked')
+        # print('button is clicked')sa
         rs=1 
         if rs==1:
                 
             self.root.destroy()
             LoginPage.page()
+            
+    def mun (self):
+        # print('button is clicked')
+        rs=1 
+        if rs==1:
+                
+            self.root.destroy()
+            loginpaget.paget()
             
             
 if __name__=='__main__':

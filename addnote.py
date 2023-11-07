@@ -33,7 +33,7 @@ class noteadd:
         self.username_entry1.place(x=100, y=150, width=800)
         self.username_line = Canvas(self.frame2, width=800, height=1.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=175)  
-
+        self.username_entry1.bind('<Return>', self.next_entry)
         # #040405#bdb9b1
         
         #2
@@ -44,7 +44,7 @@ class noteadd:
         self.username_entry2.place(x=100, y=255, width=800,height=300)
         # self.username_line = Canvas(self.frame2, width=800, height=2.0, bg="#585556", highlightthickness=0)
         # self.username_line.place(x=100, y=590)
-        
+        self.username_entry2.bind('<Return>', self.next_entry)
 
         #button#585556"
         
@@ -58,6 +58,8 @@ class noteadd:
         
         #3047ff
         self.login.place(x=20, y=12)
+    def next_entry(self, event):
+        event.widget.tk_focusNext().focus()
         
     def Addnote(self):
      

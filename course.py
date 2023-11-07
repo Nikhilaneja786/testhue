@@ -3,7 +3,7 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import database
 from tkinter.ttk import Combobox
-
+import re
 # import database
 
 class Addcourse:
@@ -21,12 +21,25 @@ class Addcourse:
         #1
         self.lb1=Label(self.frame2, text='Name',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='100')     
-        
-        self.username_entry1 = Entry(self.frame2, highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
-                                    font=("yu gothic ui ", 14, "bold"), insertbackground = '#6b6a69')
+        # def is_alphabet(input_str):
+        #     return bool(re.match("^[a-zA-Z]+$", input_str))
+
+        # self.validate_alphabet = self.frame2.register(is_alphabet)
+
+        # Function to prevent deleting the first character
+        # def prevent_first_char_delete(event):
+        #     if self.username_entry1.index(INSERT) == "1.0":
+        #         return "break"
+        # def prevent_first_char_delete(event):
+        #     if self.username_entry1.index(INSERT) == "1.0":
+        #         return "break"
+        self.username_entry1 = Entry(self.frame2,
+                                      highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
+                                      font=("yu gothic ui ", 14, "bold"), insertbackground='#6b6a69')
         self.username_entry1.place(x=100, y=145, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=170)
+        self.username_entry1.bind('<Return>', self.next_entry)
         
         
         #2
@@ -53,6 +66,13 @@ class Addcourse:
         #3047ff
         self.login.place(x=18, y=8)
         
+        
+        # def prevent_first_char_delete(self, event):
+        #     if event.keysym == 'BackSpace' and self.username_entry1.index(INSERT) == "1.0":
+        #         return "break"
+        # self.username_entry1.bind("<Key>", prevent_first_char_delete)
+    def next_entry(self, event):
+        event.widget.tk_focusNext().focus()
     def Addcourse(self):
      
         if self.username_entry1.get() and self.subCombo1.get():
@@ -63,6 +83,13 @@ class Addcourse:
                 messagebox.showinfo('alert','something went wrong')
         else:
                 messagebox.showinfo('alert','please enter your details')
+                
+    # def validate_alpha(self,P):
+    #         if P.isalpha() or P == "":
+    #             return True
+    #         else:
+    #             messagebox.showerror("Invalid Input", "Please enter alphabetic characters only.")
+    #             return False
         
 if __name__=='__main__':
     Addcourse() 

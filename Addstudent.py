@@ -23,12 +23,12 @@ class student:
         self.lb1=Label(self.frame2, text='Name',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='110')     
         
-        self.username_entry1 = Entry(self.frame2, highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
+        self.username_entry1 = Entry(self.frame2,validate="key", validatecommand=(self.frame2.register(self.validate_alpha),"%P"), highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
                                     font=("yu gothic ui ", 14, "bold"), insertbackground = '#6b6a69')
         self.username_entry1.place(x=100, y=155, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=180)
-        # self.username_entry1.bind('<Return>', self.next_entry) 
+        self.username_entry1.bind('<Return>', self.next_entry) 
         
         #2
         self.lb1=Label(self.frame2, text='D.O.B',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -37,18 +37,18 @@ class student:
         self.username_entry2 = DateEntry(self.frame2)
         self.username_entry2.place(x=100, y=260, width=500,height=30)
         self.username_entry2.config(state='readonly')
-        # self.username_entry2.bind('<Return>', self.next_entry)
+        self.username_entry2.bind('<Return>', self.next_entry)
         
         #3
         self.lb1=Label(self.frame2, text='Contact',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='310')   
         
-        self.username_entry3= Entry(self.frame2, highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
+        self.username_entry3= Entry(self.frame2,validate="key", validatecommand=(self.frame2.register(self.validate_phone),"%P"), highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
                                     font=("yu gothic ui ", 14, "bold"), insertbackground = '#6b6a69')
         self.username_entry3.place(x=100, y=365, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=390)
-        # self.username_entry3.bind('<Return>', self.next_entry)
+        self.username_entry3.bind('<Return>', self.next_entry)
         
         #4
         self.lb1=Label(self.frame2, text='Address',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -59,7 +59,7 @@ class student:
         self.username_entry4.place(x=100, y=460, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=490)
-        # self.username_entry4.bind('<Return>', self.next_entry)
+        self.username_entry4.bind('<Return>', self.next_entry)
         
         #5
         self.lb1=Label(self.frame2, text='Gender',bg='white',fg='#585556',font=('times new roman',20,'bold'))
@@ -71,7 +71,7 @@ class student:
         self.subCombo1.pack()
         self.subCombo1.place(x=250, y=540,width=190,height=30)
         
-        # self.subCombo1.bind('<Return>', self.next_entry)
+        self.subCombo1.bind('<Return>', self.next_entry)
         #6
         self.lb1=Label(self.frame2, text='Course',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='635')
@@ -82,7 +82,7 @@ class student:
         self.subCombo2.config(state='readonly')
         self.subCombo2.pack()
         self.subCombo2.place(x=250, y=640,width=190,height=30)
-        # self.subCombo2.bind('<Return>', self.next_entry)
+        self.subCombo2.bind('<Return>', self.next_entry)
         
         #6
        
@@ -105,8 +105,8 @@ class student:
         self.login.place(x=18, y=8)
         # self.login.bind('<Return>', self.next_entry)
 
-    # def next_entry(self, event):
-    #     event.widget.tk_focusNext().focus()
+    def next_entry(self, event):
+        event.widget.tk_focusNext().focus()
         
     def Addstudent(self):
         if self.username_entry1.get() and self.username_entry2.get() and self.username_entry3.get() and self.subCombo1.get() and self.subCombo2.get() and self.username_entry4.get():
@@ -118,6 +118,22 @@ class student:
         else:
                 messagebox.showinfo('alert','please enter your details')
     
+    def validate_alpha(self,P):
+            if P.isalpha() or P == "":
+                return True
+            else:
+                messagebox.showerror("Invalid Input", "Please enter alphabetic characters only.")
+                return False
+            
+    def validate_phone(self,P):
+        if P == "":
+            return True  # Allow an empty input
+        if P.isdigit() and len(P) <=10 :
+
+                return True  # Input contains digits and is within 10 characters
+        else:
+                messagebox.showerror("Invalid Input", "Please enter a 10-digit phone number.")
+                return False
 
 
 if __name__=='__main__':

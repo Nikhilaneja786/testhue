@@ -15,7 +15,13 @@ def loginAdmin(data):
         print(e)
         return False
         
-        
+def loginteacher(data):
+    try:
+        cursor.execute('select * from `addstaff` where `username` =%s and `password`=%s ',data)
+        return cursor.fetchone()
+    except Exception as e:
+        print(e)
+        return False     
 #staff
 def addstaff(data):
     try:
@@ -137,15 +143,32 @@ def Hview():
         print(e)
         return False 
 
-# def pieview():
-#     try:
-#         cursor.execute('select category, value from `addstaff`,`addstudent`')
-#         return cursor.fetchall()
-#         # Info.commit()
-#         return True
-#     except Exception as e:
-#         print(e)
-#         return False
+def pieview():
+    try:
+        cursor.execute('SELECT COUNT(*) FROM `addstaff`')
+        staff_count = cursor.fetchone()[0]  # Get the count for "addstaff" table
+        cursor.execute('SELECT COUNT(*) FROM `addstudent`')
+        student_count = cursor.fetchone()[0]  # Get the count for "addstudent" table
+        
+        return staff_count, student_count  # Return the counts for both tables
+    except Exception as e:
+        print(e)
+        return None  # Handle the error condition appropriately
+
+def barview():
+    try:
+        cursor.execute('SELECT COUNT(*) FROM `addstaff`')
+        staff_count = cursor.fetchone()[0]  # Get the count for "addstaff" table
+        cursor.execute('SELECT COUNT(*) FROM `addstudent`')
+        student_count = cursor.fetchone()[0]  # Get the count for "addstudent" table
+        cursor.execute('SELECT COUNT(*) FROM `addcourse`')
+        course_count = cursor.fetchone()[0]
+        cursor.execute('SELECT COUNT(*) FROM `addnote`')
+        addnote = cursor.fetchone()[0]
+        return staff_count, student_count ,course_count,addnote # Return the counts for both tables
+    except Exception as e:
+        print(e)
+        return None  # Handle the error condition appropriately
 
 #staff edit delete    
 def selectstaff(arg):
@@ -256,4 +279,27 @@ def deletecourse(gup):
         return True
     except:
         return False
+    
+
+
+
+
+
+
+
+
+
+# def piechart(year):
+#     db = "recodir"
+#     cursor = Info.cursor()
+#     try:
+#         cursor.execute("SELECT COUNTFROM expenditure WHERE YEAR = %s", (year,))
+#         total_expense = cursor.fetchone()
+#         return float(total_expense[0]) if total_expense else 0
+#     except Exception as e:
+#         print("Error retrieving total expenditure by year:", e)
+#         return 0
+#     finally:
+#         Info.cursor()
+#         db.close()
     

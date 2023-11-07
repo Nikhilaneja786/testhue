@@ -309,23 +309,34 @@ class main():
         self.date_time.after(100, self.show_time)
 
 
-    def create_pie_chart(self): 
-        labels = [ 'Student', 'Staff']
-        sizes = [9,7]
-        colors = [ '#ffcd5e', 'lightcoral']
-        fig, ax = plt.subplots(figsize=(5,4))
+    def create_pie_chart(self):
+        staff_count, student_count = database.pieview()  # Call the function to get the counts
+
+        labels = ['Student', 'Staff']
+        sizes = [student_count, staff_count]
+        colors = ['#ffcd5e', 'lightcoral']
+
+        fig, ax = plt.subplots(figsize=(5, 4))
         ax.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=150)
         ax.axis('equal')
-        # plt.figure(figsize=(4, 4)) 
+
         canvas = FigureCanvasTkAgg(fig, master=self.frame3)
         canvas_widget = canvas.get_tk_widget()
-        canvas_widget.place(x=10,y=42)
-  
+        canvas_widget.place(x=10, y=42)
+
+
+    # Handle the error condition
+
     
     def create_bar_chart(self):
         # Data for the bar chart
+        # categories = ['Staff', 'Students', 'Course', 'Notice']
+        # values = [3,1,4,1]
+        
+        staff_count, student_count ,course_count,addnote = database.barview()  # Call the function to get the counts
+
         categories = ['Staff', 'Students', 'Course', 'Notice']
-        values = [3,1,4,1]
+        values= [staff_count, student_count ,course_count,addnote]
         # colors = ['#ffcd5e', 'lightcoral', 'blue', 'orange']
         colors = ['lightcoral', '#ffcd5e', '#95ff93', 'lightskyblue']
         # Create a figure and axis for the bar chart

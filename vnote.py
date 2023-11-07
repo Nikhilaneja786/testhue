@@ -58,7 +58,7 @@ class nw():
                                 if rs:
                                         messagebox.showinfo("Success", "Suuccessfully Deleted")
                                         # self.frame2.destroy()
-                                        # obj = tview(self.frame2)
+                                        obj = nw(self.frame2)
                                         # obj.firstFrame()
                                 else:
                                         messagebox.showerror('Alert', 'Something went wrong.')

@@ -6,7 +6,7 @@ from tkcalendar import DateEntry
 # from datetime import *
 # import time
 import database
-
+import re
 # import database
 
 class holidayadd:
@@ -27,25 +27,38 @@ class holidayadd:
         #1
         self.lb1=Label(self.frame2, text='Holiday Name',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='95')   
-        
-        self.username_entry1 = Entry(self.frame2, highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
+        # def is_alphabet(input_str):
+        #     return bool(re.match("^[a-zA-Z]+$", input_str))
+
+        # self.validate_alphabet = self.frame2.register(is_alphabet)
+        self.username_entry1 = Entry(self.frame2,validate="key", validatecommand=(self.frame2.register(self.validate_alpha),"%P"),highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
                                     font=("yu gothic ui ", 14, "bold"), insertbackground = '#6b6a69')
         self.username_entry1.place(x=100, y=150, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=175)  
+        self.username_entry1.bind('<Return>', self.next_entry)
 
+# self.username_entry1 = Entry(self.frame2, validate="key", validatecommand=(self.validate_alphabet, "%P"),
+#                                       highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
+#                                       font=("yu gothic ui ", 14, "bold"), insertbackground='#6b6a69')
+#         self.username_entry1.place(x=100, y=145, width=500)
+#         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
+#         self.username_line.place(x=100, y=170)
         # #040405#bdb9b1
         
         #2
         self.lb1=Label(self.frame2, text='Type',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='210') 
-        
-        self.username_entry2 = Entry(self.frame2, highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
+        # def is_alphabet(input_str):
+        #     return bool(re.match("^[a-zA-Z]+$", input_str))
+
+        # self.validate_alphabet = self.frame2.register(is_alphabet)
+        self.username_entry2 = Entry(self.frame2,validate="key", validatecommand=(self.frame2.register(self.validate_alpha),"%P"), highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
                                     font=("yu gothic ui ", 14, "bold"), insertbackground = '#6b6a69')
         self.username_entry2.place(x=100, y=265, width=500)
         self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
         self.username_line.place(x=100, y=290)
-        
+        self.username_entry2.bind('<Return>', self.next_entry)
         
         self.lb1=Label(self.frame2, text='Start Date',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='325') 
@@ -73,6 +86,8 @@ class holidayadd:
         
         #3047ff
         self.login.place(x=20, y=12)
+    def next_entry(self, event):
+        event.widget.tk_focusNext().focus()
         
     def Addholiday(self):
      
@@ -88,6 +103,13 @@ class holidayadd:
                 messagebox.showinfo('alert','something went wrong')
         else:
                 messagebox.showinfo('alert','please enter your details')
+                
+    def validate_alpha(self,P):
+        if P.isalpha() or P == "":
+            return True
+        else:
+            messagebox.showerror("Invalid Input", "Please enter alphabetic characters only.")
+            return False
         
 if __name__=='__main__':
     holidayadd() 
