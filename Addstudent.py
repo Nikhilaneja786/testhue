@@ -87,7 +87,29 @@ class student:
         #6
        
         
-   
+        self.lb1=Label(self.frame2, text='username',bg='white',fg='#585556',font=('times new roman',20,'bold'))
+        self.lb1.place(x='800',y='110')     
+        
+        self.username_entry5 = Entry(self.frame2,validate="key", validatecommand=(self.frame2.register(self.validate_alpha),"%P"), highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
+                                    font=("yu gothic ui ", 14, "bold"), insertbackground = '#6b6a69')
+        self.username_entry5.place(x=800, y=155, width=500)
+        self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
+        self.username_line.place(x=800, y=180)
+        
+        
+        
+        
+        self.lb1=Label(self.frame2, text='password',bg='white',fg='#585556',font=('times new roman',20,'bold'))
+        self.lb1.place(x='800',y='210')     
+        
+        
+        
+        
+        self.username_entry6 = Entry(self.frame2, highlightthickness=0, relief=FLAT, bg="white", fg="#585556",
+                                    font=("yu gothic ui ", 14, "bold"), insertbackground = '#6b6a69')
+        self.username_entry6.place(x=800, y=255, width=500)
+        self.username_line = Canvas(self.frame2, width=500, height=2.0, bg="#585556", highlightthickness=0)
+        self.username_line.place(x=800, y=280)
         
         # #040405#bdb9b1
 
@@ -109,8 +131,8 @@ class student:
         event.widget.tk_focusNext().focus()
         
     def Addstudent(self):
-        if self.username_entry1.get() and self.username_entry2.get() and self.username_entry3.get() and self.subCombo1.get() and self.subCombo2.get() and self.username_entry4.get():
-            res=database.Addstudent((self.username_entry1.get(),self.username_entry2.get(), self.username_entry3.get(),self.subCombo1.get(),self.subCombo2.get(), self.username_entry4.get()))
+        if self.username_entry1.get() and self.username_entry2.get() and self.username_entry3.get() and self.subCombo1.get() and self.subCombo2.get() and self.username_entry4.get() and self.username_entry5.get() and self.username_entry6.get():
+            res=database.Addstudent((self.username_entry1.get(),self.username_entry2.get(), self.username_entry3.get(),self.subCombo1.get(),self.subCombo2.get(), self.username_entry4.get(), self.username_entry5.get() , self.username_entry6.get()))
             if res:
                 messagebox.showinfo('success',' Add successfully')
             else:

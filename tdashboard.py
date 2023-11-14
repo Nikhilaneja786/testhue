@@ -5,22 +5,27 @@ from datetime import *
 import time
 # import teacher
 # import course
-# import datavw
+import viewleavess
 import front
 # import Addstudent
 # import dashboard
-# import addholiday
+import addholiday
 import database
-# import addnote
+import vl
 import time
 # from tkcalendar import DateEntry
 # from datetime import datetime
 # from tkinter import ttk
+import viewholiday
 import matplotlib.pyplot as plt
 import numpy as np
 from tkinter import Canvas
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkcalendar import Calendar
+import leave
+import vnt
+import stv
+import vht
 
 class td():
     def __init__(self):
@@ -65,8 +70,8 @@ class td():
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=10, y=185)
  
-        self.login = Button(self.frame1, text='Attendence ', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
+        self.login = Button(self.frame1, text='view note', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.note)
         self.login.place(x=80, y=190)
         
         
@@ -79,8 +84,8 @@ class td():
         self.lgn_button_label.place(x=10, y=275)
         
       
-        self.login = Button(self.frame1, text='Addd Leave', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
+        self.login = Button(self.frame1, text='Add Leave', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.Leave)
         self.login.place(x=80, y=280)
         
         
@@ -91,11 +96,43 @@ class td():
         self.lgn_button_label.image = photo
         self.lgn_button_label.place(x=10, y=365)
      
-        self.login = Button(self.frame1, text='View Data', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w')
+        self.login = Button(self.frame1, text='View students', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.st)
         self.login.place(x=80, y=370)
         
         
+        
+        self.lgn_button = Image.open('images\\viewc.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=10, y=455)
+     
+        self.login = Button(self.frame1, text='View holiday', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.hhw)
+        self.login.place(x=80, y=460)
+        
+        
+        
+        self.lgn_button = Image.open('images\\viewc.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=10, y=545)
+     
+        self.login = Button(self.frame1, text='View leave', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.lw)
+        self.login.place(x=80, y=550)
+        
+        self.lgn_button = Image.open('images\\viewc.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=10, y=635)
+     
+        self.login = Button(self.frame1, text='Student leave', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.lvv)
+        self.login.place(x=80, y=640)
         # logout
         
         self.lgn_button = Image.open('images\\exit.png')
@@ -106,7 +143,7 @@ class td():
         
         #edf2fa
         self.logout = Button(self.frame1, text="Logout", bg='#035995', font=("times new roman", 13, "bold"), bd=0, fg='white',
-                                  cursor='hand2', activebackground='#035995')
+                                  cursor='hand2', activebackground='#035995',command=self.log)
         self.logout.place(x=60, y=980)
         
         self.frame2 = Frame(self.root, bg='white', width=1600, height=1000)
@@ -115,7 +152,8 @@ class td():
         self.lbl=Label(self.frame2,text='Welcome Teacher!',bg='white',fg='#035995',font=('times new roman',24,'bold'),width=85,padx=50,anchor='w')
         self.lbl.place(x=1.5,y=15)
 
-        
+        # def crs(self):
+        # attendence.(self.frame2)
     
         # cal=Calendar(self.frame2)
         # cal = Calendar(self.frame2, font="Arial 13", selectmode='day', locale='en_US',
@@ -222,7 +260,7 @@ class td():
         self.date_time= Label(self.frame2)
         self.date_time.place(x=1400, y=30)
         self.show_time()
-    
+
         
         self.root.mainloop()
         
@@ -289,83 +327,9 @@ class td():
         else:
             return None
         
-        
-        #frame2
-        #585556
-        
-#         self.frame2 = Frame(self.root, bg='white', width=1600, height=1000)
-#         self.frame2.place(x=300, y=0)
-        
-#         self.lbl=Label(self.frame2,text='Welcome Staff!',bg='white',fg='#035995',font=('times new roman',24,'bold'),width=85,padx=50,anchor='w')
-#         self.lbl.place(x=1.5,y=15) 
-        
-        
-#         self.lgn_button = Image.open('images\\dashbut2.png')
-#         photo = ImageTk.PhotoImage(self.lgn_button)
-#         self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
-#         self.lgn_button_label.image = photo
-#         self.lgn_button_label.place(x=150+60, y=80)
-        
-        
-#         self.lgn_button = Image.open('images\\dashbut.png')
-#         photo = ImageTk.PhotoImage(self.lgn_button)
-#         self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
-#         self.lgn_button_label.image = photo
-#         self.lgn_button_label.place(x=150+460, y=80)
-        
-#         self.lgn_button = Image.open('images\\dashbut3.png')
-#         photo = ImageTk.PhotoImage(self.lgn_button)
-#         self.lgn_button_label = Label(self.frame2, image=photo,width=350,height=280,bg='#ffffff')
-#         self.lgn_button_label.image = photo
-#         self.lgn_button_label.place(x=150+860, y=80)
-        
-#         # self.image = ImageTk.PhotoImage(file="images/nik.jpg")
-#         # self.dassimage = Label(self.frame2, image=self.image,height=750,width=700)
-#         # self.dassimage.place(x=470, y=120)
+    def Leave(self):
+        leave.holiadd(self.frame2)
 
-# # time
-#         # self.clock_image = ImageTk.PhotoImage(file="images/time.png")
-#         # self.date_time_image = Label(self.frame2, image=self.clock_image, bg='#3545f9')
-#         # self.date_time_image.place(x=670, y=6)
-        
-#     #     self.date_time = Label(self.frame2)
-#     #     self.date_time.place(x=1500, y=0)
-#     #     self.show_time()
-
-#     # def show_time(self):
-#     #     self.time = time.strftime("%H:%M:%S",)
-#     #     self.date = time.strftime('%d/%h/%y')
-#     #     set_text = f"  {self.time} \n {self.date}"
-#     #     self.date_time.configure(text=set_text, font=("times new roman", 13, "bold"), bd=0, bg="#585556", fg="white")
-#     #     self.date_time.after(100, self.show_time)
-
-        
-#         self.root.mainloop()
-        
-#     # def log(self):
-#     #     print('button is clicked')
-#     #     rs=1 
-#     #     if rs==1:
-                
-#     #         self.root.destroy()
-#     #         front.main()
-        
-#     # def tech(self):
-#     #     teacher.Addteacher(self.frame2)
-        
-    # def hom(self):
-       
-    #     self.frame2 = Frame(self.root, bg='white', width=1600, height=1000)
-    #     self.frame2.place(x=300, y=0)
-        
-    #     self.lbl=Label(self.frame2,text='WELCOME ADMIN !',bg='#585556',fg='white',font=('times new roman',24,'bold'),width=95)
-    #     self.lbl.place(x=1.5,y=0)
-        
-    #     self.image = ImageTk.PhotoImage(file="images/nik.jpg")
-    #     self.dassimage = Label(self.frame2, image=self.image,height=750,width=700)
-    #     self.dassimage.place(x=470, y=120)
-        
-    #     dashboard.main(self.frame2)
 
         
         
@@ -383,6 +347,26 @@ class td():
     
     # def dash():
     #     root=Tk
+    def hview(self):
+        # print('yuyg')
+        viewholiday.HolidayView(self.frame2)
+        
+    def note(self):
+        vnt.nwt(self.frame2)
+        
+    def st(self):
+        stv.swt(self.frame2)
+    
+    def hhw(self):
+        vht.hvt(self.frame2)
+        
+    def lw(self):
+        vl.LV(self.frame2)
+        
+    def lvv(self):
+        # print('yuyg')
+        viewleavess.lvs(self.frame2)
+        
         
 if __name__=='__main__':
     obj=td()

@@ -22,6 +22,15 @@ def loginteacher(data):
     except Exception as e:
         print(e)
         return False     
+    
+    
+def loginstudent(data):
+    try:
+        cursor.execute('select * from `addstudent` where `username` =%s and `password`=%s ',data)
+        return cursor.fetchone()
+    except Exception as e:
+        print(e)
+        return False   
 #staff
 def addstaff(data):
     try:
@@ -104,7 +113,7 @@ def COMBOCOURSE():
 #addstudent
 def Addstudent(data):
     try:
-        cursor.execute('INSERT INTO `addstudent`(`name`,`dob`,`contact`,`gender`,`course`,`address`) VALUES(%s,%s,%s,%s,%s,%s)',data)
+        cursor.execute('INSERT INTO `addstudent`(`name`,`dob`,`contact`,`gender`,`course`,`address`,`username`,`password`) VALUES(%s,%s,%s,%s,%s,%s,%s,%s)',data)
         # return cursor.fetchone()
         Info.commit()
         return True
@@ -283,7 +292,14 @@ def deletecourse(gup):
 
 
 
-
+def deleteleave(gup):
+    print("arsg = ",gup)
+    try:
+        cursor.execute('Delete from addleave where id = %s',gup)
+        Info.commit()
+        return True
+    except:
+        return False
 
 
 
@@ -302,4 +318,40 @@ def deletecourse(gup):
 #     finally:
 #         Info.cursor()
 #         db.close()
+def Addl(data):
+    try:
+        cursor.execute('INSERT INTO `addleave`(`name`,`reason`,`startdate`,`enddate`) VALUES(%s,%s,%s,%s)',data)
+        # return cursor.fetchone()
+        Info.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
     
+def lw():
+    try:
+        cursor.execute('select * from `addleave`')
+        return cursor.fetchall()
+        return True
+    except Exception as e:
+        print(e)
+        return False 
+    
+def als(data):
+    try:
+        cursor.execute('INSERT INTO `addleaves`(`name`,`reason`,`startdate`,`enddate`,`department`) VALUES(%s,%s,%s,%s,%s)',data)
+        # return cursor.fetchone()
+        Info.commit()
+        return True
+    except Exception as e:
+        print(e)
+        return False
+    
+def lvs():
+    try:
+        cursor.execute('select * from `addleaves`')
+        return cursor.fetchall()
+        return True
+    except Exception as e:
+        print(e)
+        return False 
