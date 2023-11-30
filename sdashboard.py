@@ -13,8 +13,8 @@ import vht
 import database
 import vnt
 import time
-#
-
+import leaves
+from tkcalendar import Calendar
 class main():
     
 
@@ -61,24 +61,43 @@ class main():
         self.lgn_button_label.place(x=10, y=195)
  
         self.login = Button(self.frame1, text='Add Leave', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.lvv)
+                            bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.lvs)
         self.login.place(x=80, y=200)
         
         
+        #
+        self.lgn_button = Image.open('images\\viewc.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=10, y=285)
+        
+ 
+        self.login = Button(self.frame1, text='View Leave', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white',command=self.lvv)
+        self.login.place(x=80, y=290)
         
         #add COURSEself
         self.lgn_button = Image.open('images\\addcrs.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
         self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=285)
+        self.lgn_button_label.place(x=10, y=450)
    
         self.login = Button(self.frame1, text='View Holiday', font=("times new roman", 18, "bold"), width=13, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995', fg='white',anchor='w',command=self.hhw)
-        self.login.place(x=80, y=290)
+        self.login.place(x=80, y=460)
         
-        
-        
+        #view attendence
+        self.lgn_button = Image.open('images\\attendance.png')
+        photo = ImageTk.PhotoImage(self.lgn_button)
+        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
+        self.lgn_button_label.image = photo
+        self.lgn_button_label.place(x=10, y=638)
+
+        self.login = Button(self.frame1, text='Attendence', font=("times new roman", 18, "bold"), width=13, bd=0,
+                            bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white')
+        self.login.place(x=80, y=640)  
         
         #add student
         self.lgn_button = Image.open('images\\addstudent.png')
@@ -93,20 +112,12 @@ class main():
         
         
         
-        #view attendence
-        self.lgn_button = Image.open('images\\holiday.png')
-        photo = ImageTk.PhotoImage(self.lgn_button)
-        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
-        self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=455)
-
-        self.login = Button(self.frame1, text='Attendence', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white')
-        self.login.place(x=80, y=460)
         
         
         
-        #add note
+        
+        
+        #assignment
         self.lgn_button = Image.open('images\\addnote.png')
         photo = ImageTk.PhotoImage(self.lgn_button)
         self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
@@ -123,16 +134,7 @@ class main():
       
         # DATA 
         
-        self.lgn_button = Image.open('images\\viewc.png')
-        photo = ImageTk.PhotoImage(self.lgn_button)
-        self.lgn_button_label = Label(self.frame1, image=photo,width=60,height=50,bg='#035995')
-        self.lgn_button_label.image = photo
-        self.lgn_button_label.place(x=10, y=640)
         
- 
-        self.login = Button(self.frame1, text='View Leave', font=("times new roman", 18, "bold"), width=13, bd=0,
-                            bg='#035995', cursor='hand2', activebackground='#035995',anchor='w', fg='white',command=self.lvv)
-        self.login.place(x=80, y=640)
         
     
         
@@ -163,10 +165,10 @@ class main():
 
         
     
-        # cal=Calendar(self.frame2)
-        # cal = Calendar(self.frame2, font="Arial 13", selectmode='day', locale='en_US',
-        #        cursor="hand2")
-        # cal.place(x=1150,y=490)
+        cal=Calendar(self.frame2)
+        cal = Calendar(self.frame2, font="Arial 13", selectmode='day', locale='en_US',
+               cursor="hand2")
+        cal.place(x=50,y=190)
         
         
         
@@ -237,9 +239,9 @@ class main():
         # print('yuyg')
         vls.lvv(self.frame2)
     
-    # def lvs(self):
-    #     # print('yuyg')
-    #     leave.leavee(self.frame2)
+    def lvs(self):
+        # print('yuyg')
+        leaves.leavee(self.frame2)
         
 if __name__=='__main__':
     obj=main()

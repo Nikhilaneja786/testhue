@@ -60,6 +60,21 @@ class leavee:
         self.username_line.place(x=100, y=290)
         self.username_entry2.bind('<Return>', self.next_entry)
         
+        
+        
+        
+        
+        self.lb1=Label(self.frame2, text='Department',bg='white',fg='#585556',font=('times new roman',20,'bold'))
+        self.lb1.place(x='95',y='580') 
+        
+        self.course=database.COMBOCOURSE()
+        self.subCombo2= Combobox(self.frame2,value=self.course)
+        self.subCombo2.set('Select course')
+        self.subCombo2.config(state='readonly')
+        self.subCombo2.pack()
+        self.subCombo2.place(x=100, y=635,width=190,height=30)
+        self.subCombo2.bind('<Return>', self.next_entry)
+        
         self.lb1=Label(self.frame2, text='Start Date',bg='white',fg='#585556',font=('times new roman',20,'bold'))
         self.lb1.place(x='95',y='325') 
         
@@ -84,18 +99,6 @@ class leavee:
         self.login = Button(self.lgn_button_label, text='ADD', font=('monoco', 13, "bold"), width=25, bd=0,
                             bg='#035995', cursor='hand2', activebackground='#035995',pady=-1, fg='white',command=self.Addl)
         
-        
-        
-        self.lb1=Label(self.frame2, text='Department',bg='white',fg='#585556',font=('times new roman',20,'bold'))
-        self.lb1.place(x='95',y='580') 
-        
-        self.course=database.COMBOCOURSE()
-        self.subCombo2= Combobox(self.frame2,value=self.course)
-        self.subCombo2.set('Select course')
-        self.subCombo2.config(state='readonly')
-        self.subCombo2.pack()
-        self.subCombo2.place(x=100, y=635,width=190,height=30)
-        self.subCombo2.bind('<Return>', self.next_entry)
         #3047ff
         self.login.place(x=20, y=12)
     def next_entry(self, event):
@@ -103,12 +106,12 @@ class leavee:
         
     def Addl(self):
      
-        if self.username_entry1.get() and self.username_entry2.get() and self.username_entry3.get() and self.username_entry4.get() and self.subCombo2.get():
+        if self.username_entry1.get() and self.username_entry2.get() and self.subCombo2.get() and self.username_entry3.get() and self.username_entry4.get() :
             # s=self.username_entry3.get()
             # print(s)
             # n=self.username_entry4.get()
             # print(n)
-            res=database.als((self.username_entry1.get(),self.username_entry2.get(), self.username_entry3.get(),self.username_entry4.get(),self.subCombo2.get()))
+            res=database.als((self.username_entry1.get(),self.username_entry2.get(),self.subCombo2.get() ,self.username_entry3.get(),self.username_entry4.get()))
             if res:
                 messagebox.showinfo('success',' Add successfully')
             else:

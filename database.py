@@ -355,3 +355,12 @@ def lvs():
     except Exception as e:
         print(e)
         return False 
+    
+def deleteleaves(gup):
+    print("arsg = ",gup)
+    try:
+        cursor.execute('Delete from addleaves where id = %s',gup)
+        Info.commit()
+        return True
+    except:
+        return False
